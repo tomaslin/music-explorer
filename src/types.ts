@@ -6,120 +6,6 @@ export type AccentType = 'normal' | 'accent' | 'marcato' | 'ghost';
 export const NOTE_NAMES = ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'] as const;
 export type NoteName = typeof NOTE_NAMES[number];
 
-export type SourceType =
-  | 'published-method'
-  | 'published-theory'
-  | 'published-etude-collection'
-  | 'published-transcription'
-  | 'artist-method'
-  | 'artist-reference'
-  | 'artist-transcription'
-  | 'play-along-method'
-  | 'ethnomusicology/reference'
-  | 'academic-article'
-  | 'ethnomusicology-book'
-  | 'music-history-reference'
-  | 'academic-book-chapter'
-  | 'music-theory-book'
-  | 'music-history'
-  | 'music-reference'
-  | 'academic-book'
-  | 'academic-dissertation'
-  | 'web-course'
-  | 'music-history-book'
-  | 'archive-reference'
-  | 'instructional-article'
-  | 'doctoral-thesis'
-  | 'academic-thesis-reference'
-  | 'guitar-method'
-  | 'oral/tradition-reference'
-  | 'original-synthesis'
-  | 'verified-digital-course'
-  | 'unverified-reference';
-
-export type SourceVerificationStatus =
-  | 'verified'
-  | 'verified-topic'
-  | 'unverified';
-
-export type VariationType =
-  | 'base'
-  | 'cadence'
-  | 'microtiming'
-  | 'permutation'
-  | 'etude'
-  | 'foundational'
-  | 'variation'
-  | 'rhythmic'
-  | 'rhythmic-variation'
-  | 'rhythmic-variant'
-  | 'phrase'
-  | 'phrase-variant'
-  | 'accent'
-  | 'displacement'
-  | 'syncopation'
-  | 'anticipation'
-  | 'subdivision'
-  | 'meter'
-  | 'clave'
-  | 'clave-variant'
-  | 'harmonic'
-  | 'harmonic-variation'
-  | 'harmonic-variant'
-  | 'melodic'
-  | 'melodic-variation'
-  | 'melodic-variant'
-  | 'interval'
-  | 'register'
-  | 'register-variation'
-  | 'register-variant'
-  | 'position'
-  | 'positional-variation'
-  | 'position-variant'
-  | 'voicing'
-  | 'inversion'
-  | 'arpeggio'
-  | 'articulation'
-  | 'articulation-variation'
-  | 'technique'
-  | 'technique-variant'
-  | 'instrument'
-  | 'instrument-variation'
-  | 'instrument-variant'
-  | 'role'
-  | 'role-variant'
-  | 'orchestration'
-  | 'call-response'
-  | 'application'
-  | 'advanced-application'
-  | 'style-application'
-  | 'stylistic-variation'
-  | 'extension'
-  | 'combination'
-  | 'combination-of'
-  | 'contrast'
-  | 'contrast-to'
-  | 'derived'
-  | 'derivation'
-  | 'derived-from'
-  | 'variation-of'
-  | 'application-of'
-  | 'alternative'
-  | 'exact-duplicate'
-  | 'concept-duplicate'
-  | 'key-variant'
-  | 'orientation-variant'
-  | 'complement'
-  | 'permutation'
-  | 'etude'
-  | 'microtiming'
-  | 'cadence';
-
-export interface ExerciseSource {
-  title: string;
-  author: string;
-  chapters?: string[];
-}
 export interface InstrumentString { stringNumber:number; noteName:string; octave:number; midi:number; }
 export interface InstrumentProfile { id:string; label:string; instrument:InstrumentType; strings:InstrumentString[]; maxFret:number; description:string; }
 export interface ExerciseNote {
@@ -147,61 +33,24 @@ export interface ActiveNoteState { index:number; note:NoteDefinition; }
 
 export interface ChordProgressionSymbol { beat: number; symbol: string; }
 
-export type LibrarySection = 'genre' | 'instrument-exercises' | 'theory';
-export type InstrumentExerciseCategory = 'Fretboard & Harmony' | 'Technique & Speed' | 'Rhythm & Coordination' | 'Soloing & Improvisation' | 'Style Applications' | 'Theory Applications';
-
 export interface ExerciseItem {
   id: string;
   title: string;
   atlas: string;
-  tags: string[];
-    bookReference?: string;
-  description: string;
   instrument: InstrumentType;
     clef: 'bass' | 'treble';
   timeSignature: string;
   defaultBpm: number;
   subdivision: 'quarter' | 'eighth' | 'sixteenth' | 'triplet';
-      source?: ExerciseSource;
   playableKeys?: NoteName[];
-  feel?: Microtiming;
   targetProfiles?: string[];
-  rhythmTags?: string[];
-  styleTags?: string[];
-  techniqueTags?: string[];
-  conceptTags?: string[];
-  harmonyTags?: string[];
-  instrumentTags?: string[];
-  bassType?: BassType;
   phraseType?: 'bar-loop' | 'pickup' | 'phrase' | 'open-ended';
   cycleLengthBeats?: number;
   chordProgression?: ChordProgressionSymbol[];
   notes: ExerciseNote[];
-  focus: string;
   events: ExerciseEvent[];
   rhythmicStructure?: RhythmicStructure;
-  musicalRole?: string;
-  familyId?: string;
-  variationType?: string;
-  parentExerciseId?: string;
-  sourceBookId?: string;
-  genreParent?: string;
   genreSubcategory?: string;
-  librarySections?: LibrarySection[];
-  instrumentExerciseCategory?: InstrumentExerciseCategory;
-  instrumentExerciseSubcategory?: string;
-  /** Optional human-readable reference context. Not a claim of transcription/source derivation. */
-  sourceReferenceType?: 'source' | 'reference-context' | 'original';
+  subtype?: string;
     }
 
-export interface SourceBibliographyItem {
-  id: string;
-  title: string;
-  author: string;
-  language?: string;
-  sourceType: SourceType;
-  verificationStatus: SourceVerificationStatus;
-  publisher?: string;
-  publicationYear?: number;
-  scope?: string[];
-}

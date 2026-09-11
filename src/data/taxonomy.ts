@@ -1,32 +1,12 @@
-/** Easy-to-browse genre navigation. The four primary anchors intentionally lead the map. */
+/** Exercise-only atlas taxonomy. Every child corresponds to real exercise data. */
 export const GENRE_ATLAS_TREE = [
-  { name: 'Synthetic', children: ['Timba-to-Bass','Clave-to-Bass','Percussion-to-Bass','Dilla Time','Reggaeton / Dembow','Drum-Machine Tresillo','Trap / 808','Synthetic Funk','House','Techno','Electro','UK Garage','Footwork','Drill','Jersey Club','Dancehall Digital','808 Sub Bass','Microtiming'] },
-  { name: 'Tango', children: ['Tango','Marcato','Síncopa','Arrastre','Yumba','Bordoneo','3+3+2','Rellenos & Cadences','Fraseo & Yeites','Guitar Effects','Bass Lines','Bass Effects','Ensemble Roles','Milonga','Vals','Tango Nuevo'] },
-  { name: 'Latin', children: ['Salsa','Son Montuno','Cha-Cha-Chá','Songo','Timba','Mambo','Afro-Cuban 6/8','Rumba Guaguancó','Rumba Yambú','Rumba Columbia','Bachata','Cumbia','Merengue','Bolero','Latin Jazz','Montuno','Clave 2-3','Clave 3-2','Rumba Clave','Mozambique','Bomba','Plena'] },
-  { name: 'Flamenco', children: ['Soleá','Soleá por Bulerías','Bulerías','Alegrías','Cantiñas','Tangos','Tientos','Seguiriya','Farruca','Fandangos','Rumba Flamenca','Tarantos','Zapateado','Malagueñas','Guajira','Tarantas','Sevillanas','Tanguillos','Rondeña','Granaína'] },
-  { name: 'Brazilian', children: ['Samba','Samba de Roda','Bossa Nova','Partido-Alto','Samba-Enredo','Pagode','Samba-Rock','Samba-Funk','Samba-Reggae','Samba-Canção','Batucada','Baião','Forró','Forró Pé-de-Serra','Forró Universitário','Forró Eletrônico','Xote','Xaxado','Arrasta-pé','Frevo','Frevo de Rua','Frevo de Bloco','Frevo-Canção','Carimbó','Lambada','Maxixe','Choro','Coco','Maracatu','Maracatu Nação','Maracatu Rural','Ijexá','Afoxé','Axé','Pagode Baiano','Piseiro / Pisadinha','Brega','Arrocha','Tecnobrega','Guitarrada','Brazilian Zouk'] },
-  { name: 'Jazz', children: ['Bebop','Jazz Blues','Walking Bass','Two-Feel','Guide Tones','Enclosures','Chord Tones','Shell Voicings','Altered Dominants','Tritone Substitution','Modal Jazz','Jazz Guitar','Jazz Bass','Latin Jazz','Fusion','Improvisation & Soloing','Motif Development','Chord Melody'] },
-  { name: 'Blues', children: ['Delta Blues','Chicago Blues','Texas Blues','Jump Blues','Blues Rock','Blues Bass','Boogie'] },
-  { name: 'Funk & R&B', children: ['James Brown Funk','P-Funk','New Orleans Funk','Motown','Stax / Memphis Soul','Disco','Boogie','Go-Go','Neo-Soul','Contemporary R&B','Hip-Hop Bass','G-Funk','Soul','Funk Guitar','Funk Bass','Slap Bass','Ghost Notes','Pocket / Microtiming'] },
-  { name: 'African', children: ['West African Highlife','Palm-Wine','Afrobeat','Afrobeats','Ewe / Agbadza','Yoruba / Fela','Soukous','Congolese Rumba','Semba','Mbalax','Makossa','Bikutsi','Jùjú','Mbaqanga','Kwela','Benga','Taarab','Ethiopian','Gnawa'] },
-  { name: 'Caribbean & Creole', children: ['Reggae','Dancehall','Ska','Calypso','Soca','Zouk','Kizomba','Tarraxinha / Tarraxo','Kompa','Mini-Jazz','Kompa Love','Cadence-Lypso','Zouk-Kizomba Crossover','Gwo Ka / Rock Fusion','Morna','Zydeco','Rocksteady'] },
-  { name: 'American Roots', children: ['Delta Blues','Chicago Blues','Texas Blues','Jump Blues','Shuffle Blues','Country','Honky-Tonk','Bakersfield','Country Bass','Bluegrass','Old-Time','Appalachian','Gospel','Cajun','Zydeco','New Orleans'] },
-  { name: 'World Rock', children: ['Rock en Español','Chinese Rock','Chinese Heavy Rock','Chinese Folk Metal','Chinese Progressive Metal','Chinese Extreme Metal','Taiwanese Rock','Taiwanese Metal','Taiwanese Folk Metal','J-Rock','Japanese Alternative Rock','Visual Kei','Japanese Metal','Japanese Folk Metal','Japanese Math Rock','Japanese Progressive Rock','Japanese Psychedelic / Proto-Metal','Indian Rock','Indian Progressive Metal','Carnatic Rock / Metal','Hindustani Fusion Rock','Pakistani Rock / Metal','Bangladeshi Rock / Metal','Indonesian Rock / Metal','Thai Rock / Metal','Filipino Rock / Metal','Korean Rock','Korean Metal','Mongolian / Steppe Metal','Central Asian Folk Metal','World Folk Metal','Rock','Progressive Rock'] },
-  { name: 'Metal', children: ['Thrash','Death Metal','Black Metal','Doom','Groove Metal','Metalcore','Progressive Metal','Djent','Sludge','Deathcore','Technical Death Metal','Industrial Metal','Nu Metal','Stoner Metal','Post-Metal','Math Metal'] },
-  { name: 'Acoustic & Fingerstyle', children: ['Travis Picking','Piedmont','Chord Melody','Percussive Fingerstyle'] },
-  { name: 'World Traditions', children: ['Raga / Hindustani Guitar','Carnatic Guitar','Celtic','Klezmer','Balkan','Greek','Musette','Japanese Traditional','Indonesian / Gamelan-Inspired','Turkish / Aksak','Maqsum','Saidi','Rupak','Tintal','Jhaptal','Additive 5/8','Additive 7/8','Additive 9/8','Additive 11/8','Zeibekiko','Kalamatianos'] },
+  { name: 'Synthetic Bass', children: ['Hip-Hop','Drill','Trap / 808','Funk','Reggaeton / Dembow','Latin Trap','Urbano','EDM','Dubstep','Electro','Future Bass','Techno','Acid','Industrial','Synthwave','Cyberpunk','Boogie / Electro-Funk','House','Nu-Disco','Eurodance','Drum & Bass','Jungle','UK Garage','Grime','Hyperpop','Industrial Bass','Experimental Electronics'] },
+  { name: 'Tango', children: ['Arrastres, Bordoneos & Low-End Articulations','Compás Engines: Marcato, Síncopa, Yumba & 3+3+2','Percussive & Extended Techniques (Efectos Típicos)','Milonga & Vals Criollo Mechanics','Folklore Engines: Chacarera, Zamba & Chamamé','Full-Song Etudes & Stylistic Synthesis'] },
+  { name: 'Flamenco', children: ['Rasgueados & Rhythmic Compás Engines','Pulgar & Alzapúa Mechanics','Picado Speed, Precision & Scales','Arpeggios, Tremolo & Legato Mechanics','Flamenco Palos Engines & Rhythm Structures','Concert Falsetas & Stylistic Synthesis'] },
+  { name: 'Latin Music', children: ['Cuban Son & Montuno','Salsa','Timba','Dominican Merengue & Bachata','Cumbia','French Caribbean Zouk & Compas','Angolan Semba & Kizomba','Reggaeton & Dembow','Clave & Afro-Latin Patterns'] },
+  { name: 'World Rock', children: ['East Asia','Southeast Asia','South Asia','Middle East & Anatolia','Europe','Central Asia','North America','Latin America','Oceania','Africa'] },
 ] as const;
 
-export const EXERCISE_ATLASES = GENRE_ATLAS_TREE.map(x=>x.name) as readonly string[];
-export type ExerciseAtlas = typeof EXERCISE_ATLASES[number] | 'Fretboard & Harmony';
-export const LIBRARY_VIEWS = ['Genre Atlases','Guitar & Bass Exercises','Books'] as const;
-export type LibraryView = typeof LIBRARY_VIEWS[number];
-export const INSTRUMENT_EXERCISE_GROUPS = [
-  { name: 'Fretboard & Harmony', children: ['Fretboard Mapping','Chords / Voicings','Chord Tones / Voice Leading','Theory Applications'] },
-  { name: 'Technique & Speed', children: ['Technique / Mechanics','Hanon / Fitness Workouts','Slap / Pop','Picking / Articulation'] },
-  { name: 'Rhythm & Coordination', children: ['Groove / Time','Subdivision / Accent','Coordination / Independence'] },
-  { name: 'Soloing & Improvisation', children: ['Lines / Vocabulary','Solo Construction','Jazz Variations'] },
-  { name: 'Style Applications', children: ['Genre Vocabulary','Brazilian / Latin','Blues / Funk / R&B','Metal / Rock','Roots / Fingerstyle','Historical Repertoire'] }
-] as const;
-export const STYLE_FAMILIES = ['flamenco','tango','salsa','son-montuno','mambo','cha-cha-cha','timba','songo','merengue','bachata','cumbia','reggaeton','brazilian','samba','bossa-nova','choro','baiao','frevo','partido-alto','maracatu','ijexa','funk','slap-bass','blues','jazz','metal','synthetic','timba-to-bass','dilla-time','dembow-bass','world-rock','rock-en-espanol','chinese-rock','chinese-metal','taiwanese-rock','taiwanese-metal','j-rock','japanese-math-rock','japanese-metal','indian-rock','carnatic-metal','folk-metal','mongolian-metal','indonesian-metal','korean-rock','country','fingerstyle','reggae','ska','zouk','kizomba','kompa','world'] as const;
-export type StyleFamily = typeof STYLE_FAMILIES[number];
+export const EXERCISE_ATLASES = GENRE_ATLAS_TREE.map(x => x.name) as readonly string[];
+export type ExerciseAtlas = typeof EXERCISE_ATLASES[number];
+export type StyleFamily = string;

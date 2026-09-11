@@ -5,7 +5,6 @@ import {
   ExerciseItem,
   NoteName,
   NoteDefinition,
-  Microtiming,
 } from './types';
 import { ALL_BASS_EXERCISES, ALL_GUITAR_EXERCISES } from './data/exercises';
 import {
@@ -20,7 +19,7 @@ import {
   ENHARMONIC_MAP,
 } from './utils/musicTheory';
 import { durationToQuarterUnits } from './utils/rhythm';
-import { getProfilesForInstrument, getInstrumentProfile } from './utils/instrumentRegistry';
+import { getInstrumentProfile } from './utils/instrumentRegistry';
 import { soundEngine, PlaybackEvent } from './utils/audioSynth';
 import { ExerciseShell } from './components/layout/ExerciseShell';
 
@@ -28,7 +27,6 @@ export function App() {
   const [instrument, setInstrument] = useState<InstrumentType>('bass');
   const [bassStrings, setBassStrings] = useState<BassStringType>(4);
   const [profileId, setProfileId] = useState('bass-4-standard');
-  const [feelOverride, setFeelOverride] = useState<Microtiming | 'exercise'>('exercise');
 
   const allExercises = useMemo(() => {
     return [...ALL_BASS_EXERCISES, ...ALL_GUITAR_EXERCISES].sort(
@@ -47,15 +45,7 @@ export function App() {
   const [isLooping, setIsLooping] = useState<boolean>(true);
   const [activeNoteIndex, setActiveNoteIndex] = useState<number | null>(null);
   const [displayMode, setDisplayMode] = useState<'intervals' | 'noteNames'>('intervals');
-  const [showHandPositionBox] = useState<boolean>(true);
   const [pendingPlaybackRestart, setPendingPlaybackRestart] = useState<boolean>(false);
-
-  // Overlay state: Exercise Info
-  const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
-
-  const profiles = useMemo(() => {
-    return getProfilesForInstrument(instrument);
-  }, [instrument]);
 
   const activeTransposedExercise = useMemo(() => {
     if (!selectedExercise.chordProgression || selectedExercise.chordProgression.length === 0) {
@@ -83,15 +73,15 @@ export function App() {
     setPendingPlaybackRestart(false);
   }, []);
 
-  const applyMusicalContext = useCallback((root: NoteName, inst: InstrumentType, nextProfileId: string, exercise: ExerciseItem = selectedExercise) => {
+  const applyMusicalContext = useCallback((root: NoteName, inst: InstrumentType, nextProfileId: string, exercise: ExerciseItem) => {
     const ctx = getRootContextForExercise(exercise, root, nextProfileId);
     setCurrentRoot(root);
     setRootOctave(ctx.octave);
     setAnchorFret(ctx.anchorFret);
     setAnchorStringNumber(ctx.anchorStringNumber);
-  }, [selectedExercise]);
+  }, []);
 
-  const handleInstrumentChange = (newInstrument: InstrumentType) => {
+  const handleInstrumentChange = useCallback((newInstrument: InstrumentType) => {
     const nextProfile = newInstrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
     const list = newInstrument === 'bass' ? ALL_BASS_EXERCISES : ALL_GUITAR_EXERCISES;
     const nextExercise = list[0];
@@ -102,9 +92,12 @@ export function App() {
     setSelectedExercise(nextExercise);
     setBpm(nextExercise.defaultBpm || 80);
     applyMusicalContext(currentRoot, newInstrument, nextProfile, nextExercise);
-  };
+  }, [applyMusicalContext, currentRoot, stopTransport]);
 
-  const handleSelectExercise = (exercise: ExerciseItem) => {
+  const handleSelectExercise = useCallback((exercise: ExerciseItem) => {
+    // Flamenco is guitar-only in this fixed 6-string/4-string catalog. Ignore any stale
+    // legacy bass-Flamenco selection instead of allowing an incompatible state transition.
+    if (exercise.instrument === 'bass' && exercise.atlas === 'Flamenco') return;
     let nextProfileId = profileId;
     if (exercise.instrument !== instrument) nextProfileId = exercise.instrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
     if (exercise.targetProfiles?.length && !exercise.targetProfiles.includes(nextProfileId)) nextProfileId = exercise.targetProfiles[0];
@@ -118,15 +111,7 @@ export function App() {
     setSelectedExercise(exercise);
     setBpm(exercise.defaultBpm || 80);
     applyMusicalContext(nextRoot, exercise.instrument, nextProfileId, exercise);
-  };
-
-  const handleProfileChange = (nextProfileId: string) => {
-    const roots = getPlayableRootsForExercise(selectedExercise, nextProfileId);
-    const nextRoot = roots.includes(currentRoot) ? currentRoot : (roots[0] || currentRoot);
-    stopTransport();
-    setProfileId(nextProfileId);
-    applyMusicalContext(nextRoot, instrument, nextProfileId);
-  };
+  }, [applyMusicalContext, instrument, profileId, currentRoot, stopTransport]);
 
   const toggleMetronome = () => {
     if (isMetronomeActive) {
@@ -183,10 +168,12 @@ export function App() {
           };
 
         const isExactRootPitch = !rawNote.isRest && rawNote.semitoneFromRoot % 12 === 0 && (rawNote.octaveOffset || 0) === 0;
-        const anchoredFingering = isExactRootPitch
-          ? { stringNumber: anchorStringNumber, fret: anchorFret, leftHandFinger: fingering.leftHandFinger }
-          : fingering;
         const profile = getInstrumentProfile(profileId, instrument);
+        const anchorString = profile.strings.find(str => str.stringNumber === anchorStringNumber);
+        const anchorIsValid = Boolean(anchorString && anchorFret >= 0 && anchorFret <= profile.maxFret && anchorString.midi + anchorFret === targetMidi);
+        const anchoredFingering = isExactRootPitch && anchorIsValid
+          ? { stringNumber: anchorStringNumber, fret: anchorFret, leftHandFinger: anchorFret === 0 ? undefined : 1 }
+          : fingering;
         const isPlayable = rawNote.isRest || rawNote.isDeadNote || profile.strings.some(str => targetMidi - str.midi >= 0 && targetMidi - str.midi <= profile.maxFret);
         return {
           ...rawNote,
@@ -203,7 +190,7 @@ export function App() {
           fret: anchoredFingering.fret,
           intervalDegree: dynamicInterval,
           isRoot: rawNote.semitoneFromRoot % 12 === 0,
-          leftHandFinger: fingering.leftHandFinger ?? rawNote.leftHandFinger,
+          leftHandFinger: anchoredFingering.leftHandFinger ?? rawNote.leftHandFinger,
           rightHandFinger: rawNote.rightHandFinger,
           slurToNext: rawNote.slurToNext,
           technique: rawNote.technique,
@@ -221,6 +208,9 @@ export function App() {
   );
 
   const startPlayback = useCallback(() => {
+    // Warm the real SoundFont after the user gesture; first playback can fall back to
+    // the deterministic Web Audio voice while the 7.7 MB bank finishes loading.
+    soundEngine.initSynthBackground();
     setIsExercisePlaying(true);
     const playbackEvents: PlaybackEvent[] = computedExerciseEvents.map((event) => ({
       startBeat: event.startBeat,
@@ -244,11 +234,18 @@ export function App() {
       instrument === 'bass',
       (eventIndex) => setActiveNoteIndex(eventIndex),
       () => { setIsExercisePlaying(false); setActiveNoteIndex(null); },
-      feelOverride,
+      'exercise',
       isLooping,
-      cycleBeats
+      cycleBeats,
+      instrument === 'bass'
+        ? (selectedExercise.atlas === 'Synthetic Bass' ? 38 : 33)
+        : selectedExercise.atlas === 'Flamenco'
+          ? 24
+          : selectedExercise.atlas === 'Latin Music' && /Brazilian|Choro|MPB|Andean|Peruvian/i.test(selectedExercise.genreSubcategory || '')
+            ? 24
+            : 27
     );
-  }, [computedExerciseEvents, bpm, instrument, feelOverride, isLooping, selectedExercise]);
+  }, [computedExerciseEvents, bpm, instrument, isLooping, selectedExercise]);
 
   useEffect(() => {
     if (pendingPlaybackRestart) {
@@ -313,10 +310,6 @@ export function App() {
 
   return (
     <ExerciseShell
-      isInfoOpen={isInfoOpen}
-      onOpenInfo={() => setIsInfoOpen(true)}
-      onCloseInfo={() => setIsInfoOpen(false)}
-
       allExercises={allExercises}
       selectedExercise={activeTransposedExercise}
       onSelectExercise={handleSelectExercise}
@@ -325,8 +318,6 @@ export function App() {
       onInstrumentChange={handleInstrumentChange}
       bassStrings={bassStrings}
       profileId={profileId}
-      onProfileChange={handleProfileChange}
-      profiles={profiles}
       playableRoots={playableRoots}
 
       isPlaying={isExercisePlaying}
@@ -343,15 +334,12 @@ export function App() {
       onRootChange={handleRootChange}
       displayMode={displayMode}
       onToggleDisplayMode={() => setDisplayMode(prev => prev === 'intervals' ? 'noteNames' : 'intervals')}
-      feelOverride={feelOverride}
-      onFeelChange={(f) => setFeelOverride(f as Microtiming | 'exercise')}
 
       computedEvents={computedExerciseEvents}
       computedNotes={computedExerciseNotes}
       activeNoteIndex={activeNoteIndex}
       anchorFret={anchorFret}
       anchorStringNumber={anchorStringNumber}
-      showHandPositionBox={showHandPositionBox}
       onFretClick={handleFretClick}
     />
   );

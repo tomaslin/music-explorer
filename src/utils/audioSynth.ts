@@ -248,13 +248,19 @@ class SoundEngine {
 
   public async playExercise(
     events: PlaybackEvent[], bpm: number, isBass: boolean, onEvent: (index: number) => void,
-    onComplete?: () => void, feelOverride?: Microtiming | 'exercise', loop = false, cycleBeats = 4
+    onComplete?: () => void, feelOverride?: Microtiming | 'exercise', loop = false, cycleBeats = 4,
+    program = isBass ? 33 : 27
   ) {
     const ctx = await this.ensureContext();
     this.stopExercise(false);
     if (!events.length) return;
     this.isExercisePlaying = true;
     this.tempo = bpm;
+    if (this.isSynthReady && this.synth) {
+      try {
+        this.synth.programChange(isBass ? 1 : 0, program);
+      } catch {}
+    }
     const generation = ++this.exerciseGeneration;
     const ordered = [...events].sort((a,b) => a.startBeat-b.startBeat);
     const actualSpan = Math.max(0, ...ordered.map(e => e.startBeat + durationToQuarterUnits(e.duration)));
@@ -278,7 +284,24 @@ class SoundEngine {
             const offset = (note.microtimingOffsetBeats ?? this.microtimingOffsetBeats(feel, e.startBeat));
             const noteAt = cycleStart + Math.max(0, e.startBeat + offset) * beatSeconds;
             const durationSec = Math.max(0.06, durationToQuarterUnits(note.duration) * beatSeconds * 0.92);
-            this.scheduleProceduralNote(noteAt, note.midi, durationSec, isBass, note.velocity ?? 100, note.accent ?? 'normal');
+            if (this.isSynthReady && this.synth) {
+              const channel = isBass ? 1 : 0;
+              const velocity = Math.max(1, Math.min(127, (note.velocity ?? 100) + (note.accent === 'accent' ? 10 : note.accent === 'marcato' ? 16 : note.accent === 'ghost' ? -30 : 0)));
+              const noteOffAt = noteAt + durationSec;
+              const delayOn = Math.max(0, (noteAt - ctx.currentTime) * 1000);
+              const onTimer = window.setTimeout(() => {
+                if (this.isExercisePlaying && generation === this.exerciseGeneration) {
+                  try { this.synth?.noteOn(channel, note.midi, velocity); } catch {}
+                }
+                this.scheduledCallbacks.delete(onTimer);
+              }, delayOn);
+              this.scheduledCallbacks.add(onTimer);
+              const delayOff = Math.max(0, (noteOffAt - ctx.currentTime) * 1000);
+              const offTimer = window.setTimeout(() => { try { this.synth?.noteOff(channel, note.midi); } catch {} this.scheduledCallbacks.delete(offTimer); }, delayOff);
+              this.scheduledCallbacks.add(offTimer);
+            } else {
+              this.scheduleProceduralNote(noteAt, note.midi, durationSec, isBass, note.velocity ?? 100, note.accent ?? 'normal');
+            }
             const delayMs = Math.max(0, (noteAt - ctx.currentTime) * 1000);
             const activeTimer = window.setTimeout(() => { if (this.isExercisePlaying && generation === this.exerciseGeneration) onEvent(index); this.scheduledCallbacks.delete(activeTimer); }, delayMs);
             this.scheduledCallbacks.add(activeTimer);

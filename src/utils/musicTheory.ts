@@ -764,11 +764,6 @@ export function getEnharmonicPitch(rootName: string, semitoneFromRoot: number, i
   const absoluteMidi = (rootOctave + 1) * 12 + rootMidi + semitoneFromRoot + (octaveOffset * 12);
   let octave = Math.floor(absoluteMidi / 12) - 1;
   
-  if (targetStepName === 'B' && absoluteMidi % 12 === 0) octave -= 1;
-  if (targetStepName === 'B' && absoluteMidi % 12 === 1) octave -= 1;
-  if (targetStepName === 'C' && absoluteMidi % 12 === 11) octave += 1;
-  if (targetStepName === 'C' && absoluteMidi % 12 === 10) octave += 1;
-
   return { pitch, octave, step: targetStepName.toLowerCase(), accidental };
 }
 

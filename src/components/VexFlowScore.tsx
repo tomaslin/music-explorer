@@ -13,19 +13,14 @@ import {
   StaveConnector,
   BarlineType,
   Dot,
-  StringNumber,
-  FretHandFinger,
-  Annotation,
   TabTie,
   StaveTie,
   ChordSymbol,
-  Modifier,
   Fraction
 } from 'vexflow';
-import { NoteDefinition, InstrumentType, BassStringType, ExerciseEvent, VariationType } from '../types';
+import { NoteDefinition, InstrumentType, BassStringType, ExerciseEvent } from '../types';
 import { formatVexFlowKey, getInstrumentProfile } from '../utils/musicTheory';
 import { durationToQuarterUnits, measureCapacityInQuarterUnits } from '../utils/rhythm';
-import { getVariationInfo } from '../utils/variations';
 
 interface RenderedEvent extends Omit<ExerciseEvent, 'notes'> {
   notes: NoteDefinition[];
@@ -40,13 +35,7 @@ interface VexFlowScoreProps {
   bassStrings: BassStringType;
   profileId?: string;
   activeNoteIndex: number | null;
-  exerciseTitle: string;
-  bookReference?: string;
-  sourceReferenceType?: 'source' | 'reference-context' | 'original';
-  onBookClick?: (bookId: string) => void;
-  variationType?: VariationType | string;
   onNoteClick?: (index: number) => void;
-  feelOverride?: string;
   chordProgression?: Array<{ beat: number; symbol: string }>;
 }
 
@@ -117,18 +106,33 @@ function splitEventsAtMeasureBoundaries(source: RenderedEvent[], capacity: numbe
   return output;
 }
 
+function measureNaturalWidth(events: RenderedEvent[]): number {
+  const complexity = events.reduce((sum, e) => {
+    const u = durationToQuarterUnits(e.duration);
+    const noteCount = e.notes.filter(n => !n.isRest).length;
+    const base = u <= 0.25 ? 62 : u <= 0.5 ? 56 : 50;
+    return sum + base + Math.max(0, noteCount - 1) * 12;
+  }, 54);
+  return Math.max(250, Math.min(680, complexity));
+}
+
 function planSystems(measures: RenderedEvent[][], availableWidth: number): SystemPlan[] {
   if (!measures.length) return [];
-  const width = Math.max(260, availableWidth);
+  const width = Math.max(320, availableWidth);
   const systems: SystemPlan[] = [];
   let current: number[] = [];
   let currentWidth = 0;
 
   for (let i = 0; i < measures.length; i++) {
-    const measureWidth = 95 + Math.max(measures[i].length * 44, 200);
+    const measureWidth = measureNaturalWidth(measures[i]);
+    const maxMeasuresPerSystem = width < 620 || measures[i].length > 12 ? 1 : 2;
     const projected = current.length === 0 ? measureWidth : currentWidth + measureWidth;
 
-    if (current.length > 0 && projected > width) {
+    // Never squeeze a dense measure merely to keep two measures on one line.
+    if (
+      current.length > 0 &&
+      (projected > width || current.length >= maxMeasuresPerSystem)
+    ) {
       systems.push({ measureIndices: current });
       current = [i];
       currentWidth = measureWidth;
@@ -151,19 +155,11 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
   bassStrings,
   profileId,
   activeNoteIndex,
-  exerciseTitle,
-  bookReference,
-  sourceReferenceType,
-  onBookClick,
-  variationType,
-  feelOverride,
   chordProgression,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [renderError, setRenderError] = useState<string | null>(null);
   const [containerWidth, setContainerWidth] = useState(850);
-  const [containerHeight, setContainerHeight] = useState(420);
-  const varInfo = getVariationInfo(variationType);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -172,27 +168,21 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
     if (!viewport) return;
     let raf = 0;
     let lastWidth = 0;
-    let lastHeight = 0;
 
-    const updateAvailableSpace = () => {
+    const updateAvailableWidth = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const rect = viewport.getBoundingClientRect();
         const w = Math.floor(rect.width || viewport.clientWidth);
-        const h = Math.floor(rect.height || viewport.clientHeight);
         if (w > 100 && Math.abs(w - lastWidth) >= 2) {
           lastWidth = w;
           setContainerWidth(w);
         }
-        if (h > 100 && Math.abs(h - lastHeight) >= 2) {
-          lastHeight = h;
-          setContainerHeight(h);
-        }
       });
     };
 
-    updateAvailableSpace();
-    const ro = new ResizeObserver(updateAvailableSpace);
+    updateAvailableWidth();
+    const ro = new ResizeObserver(updateAvailableWidth);
     ro.observe(viewport);
     return () => { cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);
@@ -200,7 +190,14 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
   useEffect(() => {
     if (!containerRef.current) return;
     setRenderError(null);
-    containerRef.current.innerHTML = '';
+    const host = containerRef.current;
+    const scratch = document.createElement('div');
+    scratch.style.width = '1px';
+    scratch.style.height = '1px';
+    scratch.style.position = 'absolute';
+    scratch.style.left = '-100000px';
+    scratch.style.top = '0';
+    document.body.appendChild(scratch);
 
     try {
       const source = (events?.length ? events : toRenderedFallback(notes)) as RenderedEvent[];
@@ -274,20 +271,23 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
       const [beats, beatValue] = timeSignature.split('/').map(Number);
 
       
-      // Render to the actual available width. Long exercises are split into systems rather than
-      // forcing a giant SVG that creates an unnecessary horizontal scroll region.
-      const targetWidth = Math.max(260, containerWidth - 8);
-
+      // Long pieces are laid out as independent systems. A dense measure is allowed to
+      // become slightly wider rather than being crushed until stems, beams and tab collide.
+      // The surrounding viewport scrolls vertically for long pieces and horizontally only
+      // for an unusually dense single measure.
+      const targetWidth = Math.max(320, containerWidth - 8);
       const systemsPlan = planSystems(measures, targetWidth);
-
       const marginTop = chordProgression?.length ? 30 : 12;
-      const idealSystemHeight = numLines === 4 ? 172 : 182;
-      const fittedSystemHeight = Math.floor((containerHeight - marginTop - 8) / Math.max(1, systemsPlan.length));
-      const systemHeight = Math.max(138, Math.min(idealSystemHeight, fittedSystemHeight || idealSystemHeight));
-      const totalSvgHeight = systemsPlan.length * systemHeight + marginTop + 8;
+      const systemHeight = numLines === 4 ? 190 : 202;
+      const systemWidths = systemsPlan.map(plan => {
+        const natural = plan.measureIndices.reduce((sum, idx) => sum + measureNaturalWidth(measures[idx]), 0) + 28;
+        return Math.max(targetWidth, natural);
+      });
+      const rendererWidth = Math.max(targetWidth, ...systemWidths);
+      const totalSvgHeight = systemsPlan.length * systemHeight + marginTop + 16;
 
-      const renderer = new Renderer(containerRef.current, Renderer.Backends.SVG);
-      renderer.resize(targetWidth, totalSvgHeight);
+      const renderer = new Renderer(scratch, Renderer.Backends.SVG);
+      renderer.resize(rendererWidth, totalSvgHeight);
       const context = renderer.getContext();
       context.setFont('Arial', 10);
 
@@ -296,6 +296,8 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
       let previousTabNote: TabNote | null = null;
       let previousStaveNote: StaveNote | null = null;
       let previousSlurToNext = false;
+      let previousTabIndexes: number[] = [];
+      let previousStaveIndexes: number[] = [];
 
       systemsPlan.forEach((plan, sysIdx) => {
         const sysMeasureIndices = plan.measureIndices;
@@ -303,15 +305,14 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
         const tabY = staveY + 98;
 
         const startX = 14;
-        const totalLineWidth = targetWidth - 28;
-        const isSingleMeasurePiece = measures.length === 1;
-
-        const measureWidths = sysMeasureIndices.map(() => {
-          if (isSingleMeasurePiece) {
-            return totalLineWidth;
-          }
-          return Math.floor(totalLineWidth / sysMeasureIndices.length);
-        });
+        const systemNaturalWidth = sysMeasureIndices.reduce((sum, idx) => sum + measureNaturalWidth(measures[idx]), 0);
+        const totalLineWidth = Math.max(targetWidth - 28, systemNaturalWidth);
+        const measureWidths = sysMeasureIndices.map((mIdx) => measureNaturalWidth(measures[mIdx]));
+        const naturalSum = measureWidths.reduce((a, b) => a + b, 0);
+        if (sysMeasureIndices.length > 1 && naturalSum < totalLineWidth) {
+          const extraPerMeasure = (totalLineWidth - naturalSum) / sysMeasureIndices.length;
+          for (let i = 0; i < measureWidths.length; i++) measureWidths[i] += extraPerMeasure;
+        }
 
         let currentX = startX;
 
@@ -379,9 +380,6 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
             const durationStr = isRest ? `${cleanDuration}r` : cleanDuration;
             const restKey = clef === 'bass' ? 'd/3' : 'b/4';
             const getWrittenOctave = (oct: number) => {
-              if (clef === 'bass' || instrument === 'bass' || instrument === 'guitar') {
-                return oct + 1;
-              }
               return oct;
             };
 
@@ -394,9 +392,6 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
               playable.forEach((n, i) => {
                 const k = formatVexFlowKey(n.pitch, getWrittenOctave(n.octave));
                 if (k.accidental) sn.addModifier(new Accidental(k.accidental), i);
-                if (n.leftHandFinger) {
-                  sn.addModifier(new FretHandFinger(String(n.leftHandFinger)).setPosition(Modifier.Position.LEFT), i);
-                }
               });
             }
             if (isDotted) {
@@ -425,6 +420,8 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
               previousTabNote = null;
               previousStaveNote = null;
               previousSlurToNext = false;
+              previousTabIndexes = [];
+              previousStaveIndexes = [];
             } else {
               const positions = playable.map((n) => ({
                 str: Math.max(1, Math.min(numLines, n.stringNumber || 1)),
@@ -435,21 +432,6 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
                 positions.forEach((_, i) => tn.addModifier(new Dot(), i));
               }
 
-              const firstNote = playable[0];
-              if (firstNote && firstNote.rightHandFinger) {
-                tn.addModifier(
-                  new Annotation(firstNote.rightHandFinger).setVerticalJustification(
-                    Annotation.VerticalJustify.BOTTOM
-                  ),
-                  0
-                );
-              }
-              if (firstNote && firstNote.technique === 'slap') {
-                tn.addModifier(new Annotation('s').setVerticalJustification(Annotation.VerticalJustify.BOTTOM), 0);
-              } else if (firstNote && firstNote.technique === 'pop') {
-                tn.addModifier(new Annotation('p').setVerticalJustification(Annotation.VerticalJustify.BOTTOM), 0);
-              }
-
               tn.setStyle({ fillStyle: '#111827', strokeStyle: '#111827' });
               if (eventIdx !== undefined) {
                 tn.setAttribute('id', 'tn-' + eventIdx);
@@ -458,33 +440,35 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
               tabNotes.push(tn);
 
               if (previousTabNote && previousSlurToNext) {
-                const firstIndexes = playable.map((_, i) => i);
-                const lastIndexes = playable.map((_, i) => i);
-                allTabTies.push(
-                  new TabTie({
-                    firstNote: previousTabNote,
-                    lastNote: tn,
-                    firstIndexes,
-                    lastIndexes,
-                  })
-                );
+                if (previousTabIndexes.length === playable.length) {
+                  allTabTies.push(
+                    new TabTie({
+                      firstNote: previousTabNote,
+                      lastNote: tn,
+                      firstIndexes: previousTabIndexes,
+                      lastIndexes: playable.map((_, i) => i),
+                    })
+                  );
+                }
               }
               if (previousStaveNote && previousSlurToNext) {
-                const firstIndexes = playable.map((_, i) => i);
-                const lastIndexes = playable.map((_, i) => i);
-                allStaveTies.push(
-                  new StaveTie({
-                    firstNote: previousStaveNote,
-                    lastNote: sn,
-                    firstIndexes,
-                    lastIndexes,
-                  })
-                );
+                if (previousStaveIndexes.length === playable.length) {
+                  allStaveTies.push(
+                    new StaveTie({
+                      firstNote: previousStaveNote,
+                      lastNote: sn,
+                      firstIndexes: previousStaveIndexes,
+                      lastIndexes: playable.map((_, i) => i),
+                    })
+                  );
+                }
               }
 
               previousTabNote = tn;
               previousStaveNote = sn;
               previousSlurToNext = Boolean(playable[0]?.slurToNext);
+              previousTabIndexes = playable.map((_, i) => i);
+              previousStaveIndexes = playable.map((_, i) => i);
             }
           }
 
@@ -522,9 +506,15 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
 
       allTabTies.forEach((t) => t.setContext(context).draw());
       allStaveTies.forEach((t) => t.setContext(context).draw());
+
+      // Swap the fully rendered SVG into the live container in one operation.
+      // This prevents a blank/flickering score while a long piece is being rebuilt.
+      if (host) host.replaceChildren(...Array.from(scratch.childNodes));
     } catch (err) {
       console.error(err);
       setRenderError((err as Error).message || 'Failed to render music score.');
+    } finally {
+      scratch.remove();
     }
   }, [notes, events, timeSignature, clef, instrument, profileId, containerWidth, chordProgression]);
 
@@ -554,12 +544,6 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
     }
   }, [activeNoteIndex]);
 
-  const active =
-    activeNoteIndex !== null
-      ? (events || []).find((e) => e.notes.some((n) => n.eventIndex === activeNoteIndex))?.notes[0]
-      : notes[activeNoteIndex ?? -1];
-  const activeFeel = feelOverride && feelOverride !== 'exercise' ? feelOverride : active?.microtiming;
-
   return (
     <div className="w-full h-full flex flex-col bg-white select-none overflow-hidden relative">
       <style>{`
@@ -569,31 +553,7 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
           font-weight: bold !important;
         }
       `}</style>
-      <div className="flex items-center justify-between px-4 py-1.5 bg-white border-b border-stone-200/80 text-xs">
-        <div className="flex items-center gap-2 flex-wrap min-w-0">
-          <span className="font-semibold text-stone-900 text-xs tracking-wide font-serif">{exerciseTitle}</span>
-          <span
-            className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono border ${varInfo.badgeClass}`}
-            title={varInfo.description}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${varInfo.dotClass}`} />
-            {varInfo.label}
-          </span>
-          {bookReference && (
-            <button
-              onClick={() => onBookClick && onBookClick(bookReference)}
-              className={`text-[11px] font-mono truncate max-w-[280px] lg:max-w-[420px] ${onBookClick ? 'text-amber-600 hover:text-amber-700 hover:underline cursor-pointer' : 'text-stone-500 cursor-default'}`}
-              title={bookReference}
-            >
-              • {bookReference}
-            </button>
-          )}
-        </div>
-        <div className="text-[11px] text-stone-500 font-mono shrink-0 ml-2">
-          {clef === 'bass' ? 'Bass Clef' : 'Treble Clef'} • {timeSignature}
-        </div>
-      </div>
-      <div className="flex-1 overflow-y-auto overflow-x-auto hide-scrollbar px-2 py-1 flex justify-center items-start bg-white">
+      <div className="flex-1 overflow-auto hide-scrollbar px-2 py-1 flex justify-start items-start bg-white">
         {renderError ? (
           <div className="p-3 text-stone-700 bg-stone-100 rounded border border-stone-300 text-xs font-mono">
             Notation notice: {renderError}
@@ -602,24 +562,10 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
           <div
             ref={containerRef}
             id="vexflow-score-svg"
-            className="w-full flex justify-center px-1"
+            className="w-max min-w-full flex-none px-1"
           />
         )}
       </div>
-      {active && (
-        <div className="absolute bottom-2 right-4 px-2.5 py-1 rounded bg-stone-900 text-stone-100 text-[11px] font-mono flex items-center gap-1.5 shadow-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-          <span>
-            {active.pitch}
-            {active.octave} • {active.intervalDegree}
-          </span>
-          {activeFeel && (
-            <span className="px-1.5 py-0.5 rounded-sm bg-stone-700 text-stone-300 text-[9px] uppercase tracking-wider">
-              {activeFeel}
-            </span>
-          )}
-        </div>
-      )}
     </div>
   );
 };

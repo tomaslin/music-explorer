@@ -16,7 +16,6 @@ interface FretboardProps {
   exerciseNotes: NoteDefinition[];
   activeNoteIndex: number | null;
   displayMode: 'intervals' | 'noteNames';
-  showHandPositionBox: boolean;
   anchorFret: number;
   anchorStringNumber: number;
   onFretClick: (noteName: string, octave: number, stringNumber: number, fret: number) => void;
@@ -30,7 +29,6 @@ export const Fretboard: React.FC<FretboardProps> = ({
   exerciseNotes,
   activeNoteIndex,
   displayMode,
-  showHandPositionBox,
   anchorFret,
   anchorStringNumber,
   onFretClick,
@@ -65,30 +63,6 @@ export const Fretboard: React.FC<FretboardProps> = ({
   return (
     <div className="w-full h-full flex flex-col bg-stone-950 select-none overflow-hidden border-t border-stone-800">
       
-      <div className="flex items-center justify-between px-4 py-1 bg-stone-900 border-b border-stone-800 text-[11px] text-stone-400">
-        <div className="flex items-center gap-2">
-          <span className="font-medium text-stone-300">
-            {profile.label}
-          </span>
-          <span className="text-stone-500 hidden sm:inline">• Click fret to transpose root</span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          {showHandPositionBox && (
-            <span className="hidden md:inline text-stone-400">
-              Position: Frets {Math.max(1, anchorFret - 1)}–{anchorFret + 4}
-            </span>
-          )}
-          <div className="flex items-center gap-1.5">
-            <span className="text-stone-400">Root:</span>
-            <span className="px-1.5 py-0.2 rounded bg-rose-800 text-white font-bold text-[11px]">
-              {currentRoot}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      
       <div className="flex-1 overflow-x-auto overflow-y-hidden hide-scrollbar flex flex-col justify-center px-4 py-2 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-900 relative">
         <div className="min-w-[900px] w-full max-w-7xl mx-auto flex flex-col justify-center relative">
           
@@ -114,24 +88,6 @@ export const Fretboard: React.FC<FretboardProps> = ({
                 backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 80px)',
               }}
             />
-
-            
-            {showHandPositionBox && (() => {
-              const boxStartFret = Math.max(1, anchorFret - 1);
-              const boxEndFret = Math.min(TOTAL_FRETS, Math.max(boxStartFret + 4, anchorFret + 4));
-              const fretSpan = boxEndFret - boxStartFret + 1;
-              const startRatio = (boxStartFret - 1) / TOTAL_FRETS;
-              const widthRatio = fretSpan / TOTAL_FRETS;
-              return (
-                <div
-                  className="absolute top-0 bottom-0 pointer-events-none border-2 border-amber-500/50 bg-amber-400/5 rounded transition-all duration-300 z-10"
-                  style={{
-                    left: `calc(48px + ((100% - 48px) * ${startRatio}))`,
-                    width: `calc((100% - 48px) * ${widthRatio})`,
-                  }}
-                />
-              );
-            })()}
 
             
             <div className="absolute inset-0 pointer-events-none flex items-center pl-12 pr-4 z-0">
