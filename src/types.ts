@@ -1,5 +1,6 @@
 export type InstrumentType = 'bass' | 'guitar';
 export type BassStringType = 4;
+export type BassType = 'electric' | 'upright' | 'synth';
 export type Microtiming = 'straight' | 'laid-back' | 'ahead' | 'swing-light' | 'swing-heavy' | 'shuffle';
 export type AccentType = 'normal' | 'accent' | 'marcato' | 'ghost';
 export const NOTE_NAMES = ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'] as const;
@@ -165,6 +166,7 @@ export interface ExerciseItem {
   conceptTags?: string[];
   harmonyTags?: string[];
   instrumentTags?: string[];
+  bassType?: BassType;
   phraseType?: 'bar-loop' | 'pickup' | 'phrase' | 'open-ended';
   cycleLengthBeats?: number;
   chordProgression?: ChordProgressionSymbol[];

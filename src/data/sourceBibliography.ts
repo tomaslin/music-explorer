@@ -97,22 +97,6 @@ export const SOURCE_BIBLIOGRAPHY = [
     ]
   },
   {
-    "id": "art-of-classical-guitar-playing",
-    "title": "The Art of Classical Guitar Playing",
-    "author": "Charles Duncan",
-    "language": "English",
-    "sourceType": "published-method",
-    "verificationStatus": "verified",
-    "publisher": "Alfred Music",
-    "publicationYear": 1995,
-    "scope": [
-      "classical guitar technique",
-      "right-hand technique",
-      "articulation",
-      "fretboard"
-    ]
-  },
-  {
     "id": "sor-complete-studies",
     "title": "Fernando Sor — Complete Studies, Lessons and Exercises",
     "author": "Fernando Sor; edited by Brian Jeffery",
@@ -146,18 +130,6 @@ export const SOURCE_BIBLIOGRAPHY = [
     "id": "101-montunos",
     "title": "101 Montunos",
     "author": "Rebeca Mauleón-Santana",
-    "language": "English",
-    "sourceType": "published-method",
-    "verificationStatus": "verified",
-    "publisher": "See source edition",
-    "scope": [
-      "exercise reference"
-    ]
-  },
-  {
-    "id": "70s-funk-and-disco-bass-101",
-    "title": "70s Funk and Disco Bass 101",
-    "author": "Josquin des Pres",
     "language": "English",
     "sourceType": "published-method",
     "verificationStatus": "verified",
@@ -1052,23 +1024,6 @@ export const SOURCE_BIBLIOGRAPHY = [
     ]
   },
   {
-    "id": "dreamspirit-chinese-folk-metal",
-    "title": "DreamSpirit — Chinese Folk Metal Artist Reference",
-    "author": "DreamSpirit",
-    "language": "English",
-    "sourceType": "artist-reference",
-    "verificationStatus": "verified",
-    "scope": [
-      "Chinese folk metal",
-      "Chinese folk melody",
-      "heavy guitar riffs",
-      "guitar",
-      "bass",
-      "erhu",
-      "guzheng"
-    ]
-  },
-  {
     "id": "nine-treasures-folk-metal",
     "title": "Nine Treasures — Mongolian/Chinese Folk Metal Reference",
     "author": "Nine Treasures",
@@ -1085,22 +1040,6 @@ export const SOURCE_BIBLIOGRAPHY = [
     ]
   },
   {
-    "id": "mongolian-folk-rock-uuhai",
-    "title": "UUHAI Official — Mongolian Rock Metal Reference",
-    "author": "UUHAI",
-    "language": "English",
-    "sourceType": "artist-reference",
-    "verificationStatus": "verified",
-    "scope": [
-      "Mongolian rock metal",
-      "throat singing",
-      "morin khuur",
-      "guitar",
-      "bass",
-      "long song"
-    ]
-  },
-  {
     "id": "guitarrada-opus-vieira",
     "title": "Lambadas das Quebradas Vol. 1: a origem da lambada/guitarrada de Mestre Vieira",
     "author": "OPUS / Associação Nacional de Pesquisa e Pós-Graduação em Música",
@@ -1113,21 +1052,6 @@ export const SOURCE_BIBLIOGRAPHY = [
       "Pará",
       "Mestre Vieira",
       "electric guitar"
-    ]
-  },
-  {
-    "id": "aldo-sena-ufpa",
-    "title": "Aldo Sena — Um Guitarreiro da Amazônia",
-    "author": "Max David da Silva Tavares / Universidade Federal do Pará",
-    "language": "Portuguese",
-    "sourceType": "academic-thesis-reference",
-    "verificationStatus": "verified",
-    "publisher": "UFPA",
-    "scope": [
-      "guitarrada",
-      "Pará guitar",
-      "electric guitar",
-      "lambada"
     ]
   },
   {

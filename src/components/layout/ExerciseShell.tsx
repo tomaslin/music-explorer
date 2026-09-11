@@ -1,274 +1,140 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Info } from 'lucide-react';
 import { MinimalToolbar } from '../toolbar/MinimalToolbar';
 import { VexFlowScore } from '../VexFlowScore';
 import { Fretboard } from '../Fretboard';
 import { ExerciseInfoDrawer } from '../overlay/ExerciseInfoDrawer';
 import { SettingsDialog } from '../overlay/SettingsDialog';
-import {
-  InstrumentType,
-  BassStringType,
-  ExerciseItem,
-  NoteName,
-  NoteDefinition,
-  Microtiming,
-} from '../../types';
+import { InstrumentType, BassStringType, ExerciseItem, NoteName, NoteDefinition, Microtiming } from '../../types';
+import { GENRE_ATLAS_TREE } from '../../data/taxonomy';
+import { cleanExerciseHeading } from '../../utils/display';
 
-interface RenderedEvent {
-  startBeat: number;
-  duration: string;
-  notes: NoteDefinition[];
-}
-
+interface RenderedEvent { startBeat:number; duration:string; notes:NoteDefinition[]; }
 interface ExerciseShellProps {
-  // Info Drawer State
-  isInfoOpen: boolean;
-  onOpenInfo: () => void;
-  onCloseInfo: () => void;
-
-  // Data & Selection
-  allExercises: ExerciseItem[];
-  selectedExercise: ExerciseItem;
-  onSelectExercise: (exercise: ExerciseItem) => void;
-
-  // Instrument & Tuning
-  instrument: InstrumentType;
-  onInstrumentChange: (inst: InstrumentType) => void;
-  bassStrings: BassStringType;
-  profileId: string;
-  onProfileChange: (profId: string) => void;
-  profiles: { id: string; label: string }[];
-  playableRoots: NoteName[];
-
-  // Playback state & handlers
-  isPlaying: boolean;
-  onPlayPause: () => void;
-  onRestart: () => void;
-  isLooping: boolean;
-  onToggleLoop: () => void;
-  bpm: number;
-  onBpmChange: (bpm: number) => void;
-  isMetronomeActive: boolean;
-  onToggleMetronome: () => void;
-
-  // Musical Context
-  currentRoot: NoteName;
-  onRootChange: (root: string) => void;
-  displayMode: 'intervals' | 'noteNames';
-  onToggleDisplayMode: () => void;
-  feelOverride: Microtiming | 'exercise';
-  onFeelChange: (feel: string) => void;
-
-  // Score & Fretboard data
-  computedEvents: RenderedEvent[];
-  computedNotes: NoteDefinition[];
-  activeNoteIndex: number | null;
-  anchorFret: number;
-  anchorStringNumber: number;
-  showHandPositionBox: boolean;
-  onFretClick: (noteName: string, octave: number, stringNumber: number, fret: number) => void;
+  isInfoOpen:boolean; onOpenInfo:()=>void; onCloseInfo:()=>void;
+  allExercises:ExerciseItem[]; selectedExercise:ExerciseItem; onSelectExercise:(exercise:ExerciseItem)=>void;
+  instrument:InstrumentType; onInstrumentChange:(inst:InstrumentType)=>void; bassStrings:BassStringType;
+  profileId:string; onProfileChange:(profId:string)=>void; profiles:{id:string;label:string}[]; playableRoots:NoteName[];
+  isPlaying:boolean; onPlayPause:()=>void; onRestart:()=>void; isLooping:boolean; onToggleLoop:()=>void;
+  bpm:number; onBpmChange:(bpm:number)=>void; isMetronomeActive:boolean; onToggleMetronome:()=>void;
+  currentRoot:NoteName; onRootChange:(root:string)=>void; displayMode:'intervals'|'noteNames'; onToggleDisplayMode:()=>void;
+  feelOverride:Microtiming|'exercise'; onFeelChange:(feel:string)=>void;
+  computedEvents:RenderedEvent[]; computedNotes:NoteDefinition[]; activeNoteIndex:number|null;
+  anchorFret:number; anchorStringNumber:number; showHandPositionBox:boolean;
+  onFretClick:(noteName:string,octave:number,stringNumber:number,fret:number)=>void;
 }
 
-export const ExerciseShell: React.FC<ExerciseShellProps> = ({
-  isInfoOpen,
-  onOpenInfo,
-  onCloseInfo,
-
-  allExercises,
-  selectedExercise,
-  onSelectExercise,
-
-  instrument,
-  onInstrumentChange,
-  bassStrings,
-  profileId,
-  onProfileChange,
-  profiles,
-  playableRoots,
-
-  isPlaying,
-  onPlayPause,
-  onRestart,
-  isLooping,
-  onToggleLoop,
-  bpm,
-  onBpmChange,
-  isMetronomeActive,
-  onToggleMetronome,
-
-  currentRoot,
-  onRootChange,
-  displayMode,
-  onToggleDisplayMode,
-  feelOverride,
-  onFeelChange,
-
-  computedEvents,
-  computedNotes,
-  activeNoteIndex,
-  anchorFret,
-  anchorStringNumber,
-  showHandPositionBox,
-  onFretClick,
-}) => {
+export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
+  const { allExercises, selectedExercise, onSelectExercise, instrument, instrument: currentInstrument } = props;
+  const instrumentExercises = useMemo(() => allExercises.filter(e => e.instrument === currentInstrument), [allExercises, currentInstrument]);
+  const atlasOrder = useMemo(() => GENRE_ATLAS_TREE.map(x => x.name), []);
+  const atlases = useMemo(() => atlasOrder.filter(a => instrumentExercises.some(e => e.atlas === a)), [atlasOrder, instrumentExercises]);
+  const [selectedAtlas, setSelectedAtlas] = useState(selectedExercise.atlas);
+  const [selectedTopic, setSelectedTopic] = useState(selectedExercise.genreSubcategory || '');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [topLevelId, setTopLevelId] = useState<string>(`atlas:${selectedExercise.atlas}`);
 
-  const instrumentExercises = useMemo(() => {
-    return allExercises.filter(e => e.instrument === instrument);
-  }, [allExercises, instrument]);
+  const topics = useMemo(() => {
+    if (selectedAtlas === 'Fretboard & Harmony') {
+      return Array.from(new Set(instrumentExercises.filter(e => e.atlas === selectedAtlas).map(e => e.instrumentExerciseSubcategory).filter(Boolean) as string[])).sort();
+    }
+    const declared = GENRE_ATLAS_TREE.find(a => a.name === selectedAtlas)?.children || [];
+    const present = new Set(instrumentExercises.filter(e => e.atlas === selectedAtlas).map(e => e.genreSubcategory).filter(Boolean) as string[]);
+    return declared.filter(t => present.has(t));
+  }, [instrumentExercises, selectedAtlas]);
+
+  const exercises = useMemo(() => instrumentExercises.filter(e => {
+    if (e.atlas !== selectedAtlas) return false;
+    return selectedAtlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === selectedTopic : e.genreSubcategory === selectedTopic;
+  }), [instrumentExercises, selectedAtlas, selectedTopic]);
 
   useEffect(() => {
-    if (topLevelId.startsWith('atlas:')) {
-      const a = topLevelId.replace('atlas:', '');
-      if (selectedExercise.atlas !== a) {
-        setTopLevelId(`atlas:${selectedExercise.atlas}`);
-      }
+    if (selectedExercise.atlas !== selectedAtlas) setSelectedAtlas(selectedExercise.atlas);
+    if ((selectedExercise.genreSubcategory || '') !== selectedTopic) setSelectedTopic(selectedExercise.genreSubcategory || '');
+  }, [selectedExercise.id, selectedExercise.atlas, selectedExercise.genreSubcategory]);
+
+  useEffect(() => {
+    if (!topics.includes(selectedTopic)) setSelectedTopic(topics[0] || '');
+  }, [topics, selectedTopic]);
+
+  useEffect(() => {
+    if (exercises.length && !exercises.some(e => e.id === selectedExercise.id)) onSelectExercise(exercises[0]);
+  }, [exercises, selectedExercise.id, onSelectExercise]);
+
+  const handleAtlas = (atlas:string) => {
+    setSelectedAtlas(atlas);
+    let available:string[];
+    if (atlas === 'Fretboard & Harmony') {
+      available = Array.from(new Set(instrumentExercises.filter(e => e.atlas === atlas).map(e => e.instrumentExerciseSubcategory).filter(Boolean) as string[])).sort();
     } else {
-      const b = topLevelId.replace('book:', '');
-      if (selectedExercise.bookReference !== b && selectedExercise.sourceBookId !== b) {
-        setTopLevelId(`atlas:${selectedExercise.atlas}`);
-      }
+      const nextTopics = GENRE_ATLAS_TREE.find(a => a.name === atlas)?.children || [];
+      available = nextTopics.filter(t => instrumentExercises.some(e => e.atlas === atlas && e.genreSubcategory === t));
     }
-  }, [selectedExercise.id]);
-
-  const handleTopLevelChange = (id: string) => {
-    setTopLevelId(id);
-    let firstEx: ExerciseItem | undefined;
-    if (id.startsWith('book:')) {
-      const bId = id.replace('book:', '');
-      firstEx = instrumentExercises.find(e => (e.sourceBookId || e.bookReference) === bId);
-    } else {
-      const a = id.replace('atlas:', '');
-      firstEx = instrumentExercises.find(e => e.atlas === a);
-    }
-    if (firstEx) {
-      onSelectExercise(firstEx);
-    }
+    const topic = available[0] || '';
+    setSelectedTopic(topic);
+    const first = instrumentExercises.find(e => e.atlas === atlas && (atlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === topic : e.genreSubcategory === topic));
+    if (first) onSelectExercise(first);
+  };
+  const handleTopic = (topic:string) => {
+    setSelectedTopic(topic);
+    const first = instrumentExercises.find(e => e.atlas === selectedAtlas && (selectedAtlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === topic : e.genreSubcategory === topic));
+    if (first) onSelectExercise(first);
   };
 
-  const handleBookClick = (bookName: string) => {
-    handleTopLevelChange(`book:${bookName}`);
-  };
+  const title = cleanExerciseHeading(selectedExercise.title);
+  const topic = cleanExerciseHeading(selectedExercise.genreSubcategory || selectedExercise.atlas);
+  const instructions = selectedExercise.description || selectedExercise.focus || 'Play the phrase steadily, then repeat while preserving the stated rhythmic and stylistic character.';
 
-  const handleSelectRelated = (relatedId: string) => {
-    const found = instrumentExercises.find(e => e.id === relatedId);
-    if (found) {
-      onSelectExercise(found);
-    }
-  };
-
-  return (
-    <div
-      id="exercise-shell"
-      className="w-screen h-screen flex flex-col bg-stone-950 text-stone-100 font-sans overflow-hidden select-none"
-    >
-      {/* 1. MinimalToolbar: Compact transport & navigation access */}
-      <MinimalToolbar
-        onOpenSettings={() => setIsSettingsOpen(true)}
-        onOpenInfo={onOpenInfo}
-        instrument={instrument}
-        onInstrumentChange={onInstrumentChange}
-        currentRoot={currentRoot}
-        onRootChange={onRootChange}
-        bpm={bpm}
-        onBpmChange={onBpmChange}
-        playableRoots={playableRoots}
-        instrumentExercises={instrumentExercises}
-        selectedExercise={selectedExercise}
-        onSelectExercise={onSelectExercise}
-        topLevelId={topLevelId}
-        onTopLevelChange={handleTopLevelChange}
-        isPlaying={isPlaying}
-        onPlayPause={onPlayPause}
-        onRestart={onRestart}
-        isLooping={isLooping}
-        onToggleLoop={onToggleLoop}
-        isMetronomeActive={isMetronomeActive}
-        onToggleMetronome={onToggleMetronome}
-      />
-
-      {/* 2. Primary Musical Workspace: 50% Score / 50% Fretboard */}
-      <main
-        id="exercise-workspace"
-        className="flex-1 flex flex-col min-h-0 w-full overflow-hidden"
-      >
-        {/* TOP: Musical Score / Notation / Timeline */}
-        <section
-          id="section-score-view"
-          className="flex-1 min-h-[220px] w-full bg-white relative overflow-hidden flex flex-col"
-          aria-label="Score view"
-        >
-          <VexFlowScore
-            notes={computedNotes}
-            events={computedEvents}
-            timeSignature={selectedExercise.timeSignature}
-            clef={selectedExercise.clef}
-            instrument={instrument}
-            bassStrings={bassStrings}
-            profileId={profileId}
-            activeNoteIndex={activeNoteIndex}
-            exerciseTitle={`${currentRoot} ${selectedExercise.title}`}
-            bookReference={selectedExercise.sourceReferenceType === 'reference-context' ? selectedExercise.bookReference : (selectedExercise.source?.title || selectedExercise.bookReference || selectedExercise.sourceBookId)}
-            sourceReferenceType={selectedExercise.sourceReferenceType}
-            onBookClick={() => handleBookClick(selectedExercise.sourceBookId || selectedExercise.bookReference || '')}
-            variationType={selectedExercise.variationType}
-            feelOverride={feelOverride}
-            chordProgression={selectedExercise.chordProgression}
-          />
-        </section>
-
-        {/* BOTTOM 50%: Interactive Fretboard */}
-        <section
-          id="section-fretboard-view"
-          className="flex-1 min-h-0 w-full bg-stone-950 relative overflow-hidden flex flex-col border-t border-stone-800"
-          aria-label="Fretboard view"
-        >
-          <Fretboard
-            instrument={instrument}
-            bassStrings={bassStrings}
-            profileId={profileId}
-            currentRoot={currentRoot}
-            exerciseNotes={computedNotes}
-            activeNoteIndex={activeNoteIndex}
-            displayMode={displayMode}
-            showHandPositionBox={showHandPositionBox}
-            anchorFret={anchorFret}
-          anchorStringNumber={anchorStringNumber}
-            onFretClick={onFretClick}
-          />
-        </section>
-      </main>
-
-      {/* 3. OptionalOverlayLayer: Transient drawers and overlays */}
-      <div id="optional-overlay-layer" className="relative z-50">
-        <SettingsDialog
-          isOpen={isSettingsOpen}
-          onClose={() => setIsSettingsOpen(false)}
-          instrument={instrument}
-          onInstrumentChange={onInstrumentChange}
-          profileId={profileId}
-          onProfileChange={onProfileChange}
-        playableRoots={playableRoots}
-          profiles={profiles}
-          bpm={bpm}
-          onBpmChange={onBpmChange}
-          currentRoot={currentRoot}
-          onRootChange={onRootChange}
-          displayMode={displayMode}
-          onToggleDisplayMode={onToggleDisplayMode}
-          feelOverride={feelOverride}
-          onFeelChange={onFeelChange}
-        />
-
-        {/* Exercise Info Drawer */}
-        <ExerciseInfoDrawer
-          isOpen={isInfoOpen}
-          onClose={onCloseInfo}
-          exercise={selectedExercise}
-          allExercises={instrumentExercises}
-          onSelectRelatedExercise={handleSelectRelated}
-        />
+  return <div id="exercise-shell" className="w-screen h-screen flex flex-col bg-stone-950 text-stone-100 font-sans overflow-hidden select-none">
+    <header className="shrink-0 bg-stone-950 border-b border-stone-800 z-30">
+      <div className="mx-auto max-w-[1800px] px-4 sm:px-6 py-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+          <label className="flex flex-col gap-1">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Atlas</span>
+            <select value={selectedAtlas} onChange={e => handleAtlas(e.target.value)} className="w-full appearance-none bg-stone-900 border border-stone-700 rounded-xl px-3 py-2.5 text-sm font-semibold text-amber-300 focus:outline-none focus:border-amber-500">
+              {atlases.map(a => <option key={a} value={a}>{a}</option>)}
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Topic</span>
+            <select value={selectedTopic} onChange={e => handleTopic(e.target.value)} className="w-full appearance-none bg-stone-900 border border-stone-700 rounded-xl px-3 py-2.5 text-sm font-semibold text-stone-100 focus:outline-none focus:border-amber-500">
+              {topics.map(t => <option key={t} value={t}>{t}</option>)}
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Exercise</span>
+            <select value={selectedExercise.id} onChange={e => { const found=exercises.find(x=>x.id===e.target.value); if(found) onSelectExercise(found); }} className="w-full appearance-none bg-stone-900 border border-stone-700 rounded-xl px-3 py-2.5 text-sm font-semibold text-stone-100 focus:outline-none focus:border-amber-500">
+              {exercises.map(ex => <option key={ex.id} value={ex.id}>{cleanExerciseHeading(ex.title)}</option>)}
+            </select>
+          </label>
+        </div>
       </div>
+    </header>
+
+    <section className="shrink-0 bg-stone-900 border-b border-stone-800 px-4 sm:px-6 py-4">
+      <div className="mx-auto max-w-[1800px] flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight text-white truncate">{title}</h1>
+          <div className="mt-1 text-sm font-semibold text-amber-400">{topic}</div>
+          <div className="mt-2 max-w-4xl text-sm leading-6 text-stone-300"><span className="text-[10px] uppercase tracking-[0.18em] text-stone-500 mr-2">Instructions</span>{instructions}</div>
+        </div>
+        <button onClick={props.onOpenInfo} aria-label="Exercise information" className="shrink-0 p-2.5 rounded-xl border border-stone-700 bg-stone-950 text-stone-400 hover:text-white hover:bg-stone-800"><Info className="w-4 h-4"/></button>
+      </div>
+    </section>
+
+    <main id="exercise-workspace" className="flex-1 flex flex-col min-h-0 w-full overflow-hidden">
+      <section id="section-score-view" className="flex-1 min-h-[220px] w-full bg-white relative overflow-hidden flex flex-col" aria-label="Score view">
+        <VexFlowScore notes={props.computedNotes} events={props.computedEvents} timeSignature={selectedExercise.timeSignature} clef={selectedExercise.clef} instrument={instrument} bassStrings={props.bassStrings} profileId={props.profileId} activeNoteIndex={props.activeNoteIndex} exerciseTitle={`${props.currentRoot} ${title}`} bookReference={selectedExercise.sourceReferenceType === 'reference-context' ? selectedExercise.bookReference : (selectedExercise.source?.title || selectedExercise.bookReference || selectedExercise.sourceBookId)} sourceReferenceType={selectedExercise.sourceReferenceType} onBookClick={() => {}} variationType={selectedExercise.variationType} feelOverride={props.feelOverride} chordProgression={selectedExercise.chordProgression}/>
+      </section>
+      <section id="section-fretboard-view" className="flex-1 min-h-0 w-full bg-stone-950 relative overflow-hidden flex flex-col border-t border-stone-800" aria-label="Fretboard view">
+        <Fretboard instrument={instrument} bassStrings={props.bassStrings} profileId={props.profileId} currentRoot={props.currentRoot} exerciseNotes={props.computedNotes} activeNoteIndex={props.activeNoteIndex} displayMode={props.displayMode} showHandPositionBox={props.showHandPositionBox} anchorFret={props.anchorFret} anchorStringNumber={props.anchorStringNumber} onFretClick={props.onFretClick}/>
+      </section>
+    </main>
+
+    <MinimalToolbar onOpenSettings={()=>setIsSettingsOpen(true)} instrument={instrument} isPlaying={props.isPlaying} onPlayPause={props.onPlayPause} onRestart={props.onRestart} isLooping={props.isLooping} onToggleLoop={props.onToggleLoop} isMetronomeActive={props.isMetronomeActive} onToggleMetronome={props.onToggleMetronome} bpm={props.bpm} onBpmChange={props.onBpmChange}/>
+
+    <div className="relative z-50">
+      <SettingsDialog isOpen={isSettingsOpen} onClose={()=>setIsSettingsOpen(false)} instrument={instrument} onInstrumentChange={props.onInstrumentChange} profileId={props.profileId} onProfileChange={props.onProfileChange} profiles={props.profiles} playableRoots={props.playableRoots} bpm={props.bpm} onBpmChange={props.onBpmChange} currentRoot={props.currentRoot} onRootChange={props.onRootChange} displayMode={props.displayMode} onToggleDisplayMode={props.onToggleDisplayMode} feelOverride={props.feelOverride} onFeelChange={props.onFeelChange}/>
+      <ExerciseInfoDrawer isOpen={props.isInfoOpen} onClose={props.onCloseInfo} exercise={selectedExercise} allExercises={instrumentExercises} onSelectRelatedExercise={id=>{const found=instrumentExercises.find(e=>e.id===id); if(found) onSelectExercise(found);}}/>
     </div>
-  );
+  </div>;
 };
