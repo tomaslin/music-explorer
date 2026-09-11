@@ -20,10 +20,7 @@ interface RenderedEvent {
 }
 
 interface ExerciseShellProps {
-  // Navigation & Info Drawer States
-  isNavOpen?: boolean;
-  onOpenNav?: () => void;
-  onCloseNav?: () => void;
+  // Info Drawer State
   isInfoOpen: boolean;
   onOpenInfo: () => void;
   onCloseInfo: () => void;
@@ -40,6 +37,7 @@ interface ExerciseShellProps {
   profileId: string;
   onProfileChange: (profId: string) => void;
   profiles: { id: string; label: string }[];
+  playableRoots: NoteName[];
 
   // Playback state & handlers
   isPlaying: boolean;
@@ -85,6 +83,7 @@ export const ExerciseShell: React.FC<ExerciseShellProps> = ({
   profileId,
   onProfileChange,
   profiles,
+  playableRoots,
 
   isPlaying,
   onPlayPause,
@@ -173,6 +172,7 @@ export const ExerciseShell: React.FC<ExerciseShellProps> = ({
         onRootChange={onRootChange}
         bpm={bpm}
         onBpmChange={onBpmChange}
+        playableRoots={playableRoots}
         instrumentExercises={instrumentExercises}
         selectedExercise={selectedExercise}
         onSelectExercise={onSelectExercise}
@@ -208,7 +208,8 @@ export const ExerciseShell: React.FC<ExerciseShellProps> = ({
             profileId={profileId}
             activeNoteIndex={activeNoteIndex}
             exerciseTitle={`${currentRoot} ${selectedExercise.title}`}
-            bookReference={selectedExercise.source?.title || selectedExercise.bookReference || selectedExercise.sourceBookId}
+            bookReference={selectedExercise.sourceReferenceType === 'reference-context' ? selectedExercise.bookReference : (selectedExercise.source?.title || selectedExercise.bookReference || selectedExercise.sourceBookId)}
+            sourceReferenceType={selectedExercise.sourceReferenceType}
             onBookClick={() => handleBookClick(selectedExercise.sourceBookId || selectedExercise.bookReference || '')}
             variationType={selectedExercise.variationType}
             feelOverride={feelOverride}
@@ -247,6 +248,7 @@ export const ExerciseShell: React.FC<ExerciseShellProps> = ({
           onInstrumentChange={onInstrumentChange}
           profileId={profileId}
           onProfileChange={onProfileChange}
+        playableRoots={playableRoots}
           profiles={profiles}
           bpm={bpm}
           onBpmChange={onBpmChange}

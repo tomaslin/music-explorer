@@ -10,16 +10,17 @@ import {
 import { ALL_BASS_EXERCISES, ALL_GUITAR_EXERCISES } from './data/exercises';
 import {
   noteToMidi,
-  findOptimalFingering,
-  findChordFingerings,
   computeErgonomicExerciseFingerings,
   getEnharmonicPitch,
   getDynamicIntervalDegree,
-  getDefaultRootOctaveAndAnchor,
+  getRootContextForExercise,
+  isExercisePlayableAtRootContext,
+  getPlayableRootsForExercise,
   transposeChordProgression,
   ENHARMONIC_MAP,
 } from './utils/musicTheory';
-import { getProfilesForInstrument } from './utils/instrumentRegistry';
+import { durationToQuarterUnits } from './utils/rhythm';
+import { getProfilesForInstrument, getInstrumentProfile } from './utils/instrumentRegistry';
 import { soundEngine, PlaybackEvent } from './utils/audioSynth';
 import { ExerciseShell } from './components/layout/ExerciseShell';
 
@@ -47,8 +48,7 @@ export function App() {
   const [showHandPositionBox] = useState<boolean>(true);
   const [pendingPlaybackRestart, setPendingPlaybackRestart] = useState<boolean>(false);
 
-  // Overlay state: Navigation Map & Exercise Info
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+  // Overlay state: Exercise Info
   const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
 
   const profiles = useMemo(() => {
@@ -61,7 +61,7 @@ export function App() {
     }
     const transposed = transposeChordProgression(
       selectedExercise.chordProgression,
-      selectedExercise.rootNote || 'C',
+      'C',
       currentRoot
     );
     return {
@@ -70,59 +70,60 @@ export function App() {
     };
   }, [selectedExercise, currentRoot]);
 
-  const handleInstrumentChange = (newInstrument: InstrumentType) => {
-    setInstrument(newInstrument);
-    const nextProfile = newInstrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
-    setProfileId(nextProfile);
-    setBassStrings(newInstrument === 'bass' ? 4 : 4);
-    const list = newInstrument === 'bass' ? ALL_BASS_EXERCISES : ALL_GUITAR_EXERCISES;
-    setSelectedExercise(list[0]);
-    setBpm(list[0].defaultBpm);
-    const { octave, anchorFret: newAnchor } = getDefaultRootOctaveAndAnchor(currentRoot, newInstrument);
-    setRootOctave(octave);
-    setAnchorFret(newAnchor);
-    setAnchorStringNumber(newInstrument === 'bass' ? 4 : 6);
+  const playableRoots = useMemo(() => getPlayableRootsForExercise(selectedExercise, profileId), [selectedExercise, profileId]);
+
+  const stopTransport = useCallback(() => {
     soundEngine.stopExercise();
     soundEngine.stopMetronome();
     setIsExercisePlaying(false);
     setIsMetronomeActive(false);
     setActiveNoteIndex(null);
+    setPendingPlaybackRestart(false);
+  }, []);
+
+  const applyMusicalContext = useCallback((root: NoteName, inst: InstrumentType, nextProfileId: string, exercise: ExerciseItem = selectedExercise) => {
+    const ctx = getRootContextForExercise(exercise, root, nextProfileId);
+    setCurrentRoot(root);
+    setRootOctave(ctx.octave);
+    setAnchorFret(ctx.anchorFret);
+    setAnchorStringNumber(ctx.anchorStringNumber);
+  }, [selectedExercise]);
+
+  const handleInstrumentChange = (newInstrument: InstrumentType) => {
+    const nextProfile = newInstrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
+    const list = newInstrument === 'bass' ? ALL_BASS_EXERCISES : ALL_GUITAR_EXERCISES;
+    const nextExercise = list[0];
+    stopTransport();
+    setInstrument(newInstrument);
+    setProfileId(nextProfile);
+    setBassStrings(4);
+    setSelectedExercise(nextExercise);
+    setBpm(nextExercise.defaultBpm || 80);
+    applyMusicalContext(currentRoot, newInstrument, nextProfile, nextExercise);
   };
 
   const handleSelectExercise = (exercise: ExerciseItem) => {
     let nextProfileId = profileId;
-    if (exercise.instrument !== instrument) {
-      setInstrument(exercise.instrument);
-      nextProfileId = exercise.instrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
-    }
+    if (exercise.instrument !== instrument) nextProfileId = exercise.instrument === 'bass' ? 'bass-4-standard' : 'guitar-6-standard';
+    if (exercise.targetProfiles?.length && !exercise.targetProfiles.includes(nextProfileId)) nextProfileId = exercise.targetProfiles[0];
 
-    if (exercise.targetProfiles && exercise.targetProfiles.length > 0) {
-      if (!exercise.targetProfiles.includes(nextProfileId)) {
-        nextProfileId = exercise.targetProfiles[0];
-      }
-    }
-    
-    if (nextProfileId !== profileId) {
-      setProfileId(nextProfileId);
-    }
-
-    // If current key is not in playableKeys, switch to first valid key
-    if (exercise.playableKeys && exercise.playableKeys.length > 0) {
-      if (!exercise.playableKeys.includes(currentRoot)) {
-        const nextRoot = exercise.playableKeys[0] as NoteName;
-        setCurrentRoot(nextRoot);
-        const { octave, anchorFret: naturalAnchor } = getDefaultRootOctaveAndAnchor(nextRoot, exercise.instrument);
-        setRootOctave(octave);
-        setAnchorFret(naturalAnchor);
-        setAnchorStringNumber(exercise.instrument === 'bass' ? 4 : 6);
-      }
-    }
-
+    const allowedRoots = getPlayableRootsForExercise(exercise, nextProfileId);
+    const nextRoot = allowedRoots.includes(currentRoot) ? currentRoot : (allowedRoots[0] || currentRoot);
+    stopTransport();
+    setInstrument(exercise.instrument);
+    setProfileId(nextProfileId);
+    setBassStrings(4);
     setSelectedExercise(exercise);
     setBpm(exercise.defaultBpm || 80);
-    soundEngine.stopExercise();
-    setIsExercisePlaying(false);
-    setActiveNoteIndex(null);
+    applyMusicalContext(nextRoot, exercise.instrument, nextProfileId, exercise);
+  };
+
+  const handleProfileChange = (nextProfileId: string) => {
+    const roots = getPlayableRootsForExercise(selectedExercise, nextProfileId);
+    const nextRoot = roots.includes(currentRoot) ? currentRoot : (roots[0] || currentRoot);
+    stopTransport();
+    setProfileId(nextProfileId);
+    applyMusicalContext(nextRoot, instrument, nextProfileId);
   };
 
   const toggleMetronome = () => {
@@ -183,9 +184,12 @@ export function App() {
         const anchoredFingering = isExactRootPitch
           ? { stringNumber: anchorStringNumber, fret: anchorFret, leftHandFinger: fingering.leftHandFinger }
           : fingering;
+        const profile = getInstrumentProfile(profileId, instrument);
+        const isPlayable = rawNote.isRest || rawNote.isDeadNote || profile.strings.some(str => targetMidi - str.midi >= 0 && targetMidi - str.midi <= profile.maxFret);
         return {
           ...rawNote,
           midi: targetMidi,
+          isPlayable,
           eventIndex,
           pitch,
           octave,
@@ -229,8 +233,8 @@ export function App() {
       })),
     }));
 
-    const [beatsRaw] = selectedExercise.timeSignature.split('/');
-    const cycleBeats = selectedExercise.cycleLengthBeats || Number(beatsRaw) || 4;
+    const cycleBeats = selectedExercise.cycleLengthBeats || Math.max(0, ...computedExerciseEvents.map(e => e.startBeat + durationToQuarterUnits(e.duration)));
+
 
     soundEngine.playExercise(
       playbackEvents,
@@ -253,6 +257,9 @@ export function App() {
 
   const handleFretClick = (noteName: string, octave: number, stringNumber: number, fret: number) => {
     const cleanNote = (ENHARMONIC_MAP[noteName] || noteName) as NoteName;
+    const allowed = getPlayableRootsForExercise(selectedExercise, profileId);
+    if (!allowed.includes(cleanNote)) return;
+    if (!isExercisePlayableAtRootContext(selectedExercise, cleanNote, octave, profileId)) return;
     setCurrentRoot(cleanNote);
     setRootOctave(octave);
     setAnchorFret(fret);
@@ -267,16 +274,12 @@ export function App() {
 
   const handleRootChange = (newRoot: string) => {
     const cleanNote = (ENHARMONIC_MAP[newRoot] || newRoot) as NoteName;
-    const { octave, anchorFret: newAnchor } = getDefaultRootOctaveAndAnchor(cleanNote, instrument);
-    setCurrentRoot(cleanNote);
-    setRootOctave(octave);
-    setAnchorFret(newAnchor);
-    setAnchorStringNumber(instrument === 'bass' ? 4 : 6);
-    if (isExercisePlaying) {
-      soundEngine.stopExercise();
-      setActiveNoteIndex(null);
-      setPendingPlaybackRestart(true);
-    }
+    const allowed = getPlayableRootsForExercise(selectedExercise, profileId);
+    if (!allowed.includes(cleanNote)) return;
+    const wasPlaying = isExercisePlaying;
+    if (wasPlaying) stopTransport();
+    applyMusicalContext(cleanNote, instrument, profileId);
+    if (wasPlaying) setPendingPlaybackRestart(true);
   };
 
   const togglePlayExercise = useCallback(() => {
@@ -308,9 +311,6 @@ export function App() {
 
   return (
     <ExerciseShell
-      isNavOpen={isNavOpen}
-      onOpenNav={() => setIsNavOpen(true)}
-      onCloseNav={() => setIsNavOpen(false)}
       isInfoOpen={isInfoOpen}
       onOpenInfo={() => setIsInfoOpen(true)}
       onCloseInfo={() => setIsInfoOpen(false)}
@@ -323,8 +323,9 @@ export function App() {
       onInstrumentChange={handleInstrumentChange}
       bassStrings={bassStrings}
       profileId={profileId}
-      onProfileChange={setProfileId}
+      onProfileChange={handleProfileChange}
       profiles={profiles}
+      playableRoots={playableRoots}
 
       isPlaying={isExercisePlaying}
       onPlayPause={togglePlayExercise}

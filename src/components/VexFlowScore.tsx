@@ -42,6 +42,7 @@ interface VexFlowScoreProps {
   activeNoteIndex: number | null;
   exerciseTitle: string;
   bookReference?: string;
+  sourceReferenceType?: 'source' | 'reference-context' | 'original';
   onBookClick?: (bookId: string) => void;
   variationType?: VariationType | string;
   onNoteClick?: (index: number) => void;
@@ -114,6 +115,7 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
   activeNoteIndex,
   exerciseTitle,
   bookReference,
+  sourceReferenceType,
   onBookClick,
   variationType,
   feelOverride,
@@ -122,6 +124,7 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [renderError, setRenderError] = useState<string | null>(null);
   const [containerWidth, setContainerWidth] = useState(850);
+  const [containerHeight, setContainerHeight] = useState(420);
   const varInfo = getVariationInfo(variationType);
 
   useEffect(() => {
@@ -132,11 +135,14 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
     const updateWidth = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        const w = Math.floor(el.getBoundingClientRect().width || el.clientWidth);
+        const rect = el.getBoundingClientRect();
+        const w = Math.floor(rect.width || el.clientWidth);
+        const h = Math.floor(rect.height || el.clientHeight);
         if (w > 100 && Math.abs(w - last) >= 2) {
           last = w;
           setContainerWidth(w);
         }
+        if (h > 100) setContainerHeight(h);
       });
     };
     updateWidth();
@@ -199,15 +205,17 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
       const [beats, beatValue] = timeSignature.split('/').map(Number);
 
       
-      const minRequiredWidth = measures.reduce((acc, m, i) => acc + (i === 0 ? 95 : 45) + Math.max(m.length * 44, 200), 28);
-      
-      const targetWidth = Math.max(620, containerWidth - 16, minRequiredWidth);
+      // Render to the actual available width. Long exercises are split into systems rather than
+      // forcing a giant SVG that creates an unnecessary horizontal scroll region.
+      const targetWidth = Math.max(320, containerWidth - 16);
 
       const systemsPlan = planSystems(measures, targetWidth);
 
-      const systemHeight = numLines === 4 ? 180 : 190;
-      const marginTop = chordProgression?.length ? 30 : 16;
-      const totalSvgHeight = systemsPlan.length * systemHeight + marginTop + 10;
+      const marginTop = chordProgression?.length ? 30 : 12;
+      const idealSystemHeight = numLines === 4 ? 172 : 182;
+      const fittedSystemHeight = Math.floor((containerHeight - marginTop - 8) / Math.max(1, systemsPlan.length));
+      const systemHeight = Math.max(138, Math.min(idealSystemHeight, fittedSystemHeight || idealSystemHeight));
+      const totalSvgHeight = systemsPlan.length * systemHeight + marginTop + 8;
 
       const renderer = new Renderer(containerRef.current, Renderer.Backends.SVG);
       renderer.resize(targetWidth, totalSvgHeight);

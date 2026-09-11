@@ -24,6 +24,7 @@ interface MinimalToolbarProps {
   onRootChange: (root: string) => void;
 
   bpm: number;
+  playableRoots: NoteName[];
   onBpmChange: (bpm: number) => void;
 
   instrumentExercises: ExerciseItem[];
@@ -51,6 +52,7 @@ export const MinimalToolbar: React.FC<MinimalToolbarProps> = ({
   onRootChange,
   bpm,
   onBpmChange,
+  playableRoots,
   instrumentExercises,
   selectedExercise,
   onSelectExercise,
@@ -134,7 +136,7 @@ export const MinimalToolbar: React.FC<MinimalToolbarProps> = ({
               className="appearance-none pl-2 pr-5 py-0.5 rounded bg-stone-800 border border-stone-700 text-xs font-bold text-rose-400 focus:outline-none focus:border-rose-500 cursor-pointer"
             >
               {NOTE_NAMES.map((note) => (
-                <option key={note} value={note}>
+                <option key={note} value={note} disabled={!playableRoots.includes(note)}>
                   {note}
                 </option>
               ))}

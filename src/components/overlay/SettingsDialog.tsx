@@ -1,5 +1,5 @@
 import React from 'react';
-import { InstrumentType, Microtiming } from '../../types';
+import { InstrumentType, Microtiming, NoteName } from '../../types';
 import { X } from 'lucide-react';
 
 interface SettingsDialogProps {
@@ -11,6 +11,7 @@ interface SettingsDialogProps {
   profileId: string;
   onProfileChange: (profId: string) => void;
   profiles: { id: string; label: string }[];
+  playableRoots: NoteName[];
   
   bpm: number;
   onBpmChange: (bpm: number) => void;
@@ -30,7 +31,7 @@ const ROOTS = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
 export const SettingsDialog: React.FC<SettingsDialogProps> = ({
   isOpen, onClose,
   instrument, onInstrumentChange,
-  profileId, onProfileChange, profiles,
+  profileId, onProfileChange, profiles, playableRoots,
   bpm, onBpmChange,
   currentRoot, onRootChange,
   displayMode, onToggleDisplayMode,
@@ -132,7 +133,7 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                 className="bg-stone-950 border border-stone-800 rounded-lg px-3 py-1.5 text-sm font-bold text-amber-400 focus:outline-none focus:border-amber-500/50"
               >
                 {ROOTS.map(r => (
-                  <option key={r} value={r}>{r}</option>
+                  <option key={r} value={r} disabled={!playableRoots.includes(r as NoteName)}>{r}</option>
                 ))}
               </select>
             </div>

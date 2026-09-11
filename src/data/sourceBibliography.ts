@@ -299,7 +299,26 @@ export const SOURCE_BIBLIOGRAPHY = [
     "verificationStatus": "verified",
     "publisher": "See source edition",
     "scope": [
-      "exercise reference"
+      "flamenco guitar",
+      "soleá",
+      "seguiriya",
+      "alegrías",
+      "fandangos de Huelva",
+      "sevillanas",
+      "tremolo",
+      "bulerías",
+      "farruca",
+      "granadinas",
+      "tientos",
+      "zapateado",
+      "malagueñas",
+      "tarantos",
+      "rasgueado",
+      "picado",
+      "alzapúa",
+      "ligado",
+      "arpeggio",
+      "compás"
     ]
   },
   {
@@ -1207,6 +1226,66 @@ export const SOURCE_BIBLIOGRAPHY = [
       "Bulgar",
       "dance repertoire",
       "Eastern European Jewish music"
+    ]
+  },
+  {
+    "id": "dilla-time",
+    "title": "Dilla Time",
+    "author": "Dan Charnas",
+    "language": "English",
+    "sourceType": "published-theory",
+    "verificationStatus": "verified-topic",
+    "publisher": "MCD / Farrar, Straus and Giroux",
+    "publicationYear": 2022,
+    "scope": [
+      "J Dilla",
+      "drum-machine rhythm",
+      "straight-versus-swing conflict",
+      "microtiming",
+      "off-grid groove",
+      "bass pocket"
+    ]
+  },
+  {
+    "id": "reggaeton-rivera-marshall-pacini",
+    "title": "Reggaeton",
+    "author": "Raquel Z. Rivera, Wayne Marshall & Deborah Pacini Hernandez (eds.)",
+    "language": "English",
+    "sourceType": "ethnomusicology/reference",
+    "verificationStatus": "verified-topic",
+    "publisher": "Duke University Press",
+    "publicationYear": 2009,
+    "scope": [
+      "reggaeton",
+      "Dem Bow",
+      "dembow",
+      "dancehall-derived rhythm",
+      "bass drum",
+      "digital production"
+    ]
+  },
+  {
+    "id": "flamenco-explained-compas",
+    "title": "Flamenco Explained — Compás & Palo Reference",
+    "author": "Kai Narezo / Flamenco Explained",
+    "language": "English",
+    "sourceType": "verified-digital-course",
+    "verificationStatus": "verified-topic",
+    "scope": [
+      "flamenco compás",
+      "soleá",
+      "bulerías",
+      "alegrías",
+      "tangos",
+      "tientos",
+      "seguiriyas",
+      "farruca",
+      "tarantos",
+      "fandangos",
+      "guajira",
+      "tanguillos",
+      "palmas",
+      "accent cycles"
     ]
   }
 ];

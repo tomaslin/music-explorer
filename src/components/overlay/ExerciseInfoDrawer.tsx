@@ -53,8 +53,12 @@ export const ExerciseInfoDrawer: React.FC<ExerciseInfoDrawerProps> = ({ isOpen, 
           </div>
 
           <div className="p-3.5 rounded-xl bg-stone-950/70 border border-stone-800">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-stone-400 mb-2 font-semibold"><BookOpen className="w-3.5 h-3.5 text-amber-400"/><span>Source Book</span></div>
-            {source ? <><div className="text-sm font-semibold text-stone-100">{source.title}</div><div className="text-xs text-stone-500 mt-0.5">{source.author}</div></> : <div className="text-xs text-stone-500">{exercise.bookReference || 'Source not specified'}</div>}
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-stone-400 mb-2 font-semibold"><BookOpen className="w-3.5 h-3.5 text-amber-400"/><span>{exercise.sourceReferenceType === 'reference-context' ? 'Reference Context' : 'Source'}</span></div>
+            {exercise.sourceReferenceType === 'reference-context' ? <>
+              <div className="text-sm font-semibold text-stone-100">Original style adaptation</div>
+              {exercise.bookReference && <div className="text-xs text-stone-400 mt-1">Reference context: {exercise.bookReference}</div>}
+              <div className="text-[11px] text-stone-500 mt-2 leading-relaxed">This exercise is a library/classification-informed adaptation. It is not presented as a page-level transcription from the reference.</div>
+            </> : source ? <><div className="text-sm font-semibold text-stone-100">{source.title}</div><div className="text-xs text-stone-500 mt-0.5">{source.author}</div></> : <div className="text-xs text-stone-500">{exercise.bookReference || 'Source not specified'}</div>}
           </div>
 
           {(exercise.styleTags?.length || exercise.techniqueTags?.length || exercise.conceptTags?.length || exercise.rhythmTags?.length) ? <div className="space-y-3">

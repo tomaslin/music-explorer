@@ -140,6 +140,138 @@ export function midiToFrequency(midi: number): number {
 
 export const FLAT_KEYS = new Set(['F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Dm', 'Gm', 'Cm', 'Fm', 'Bbm', 'Ebm']);
 
+
+
+export function getPlayableRootsForExercise(
+  exercise: { instrument: InstrumentType; events: Array<{ notes: Array<{ semitoneFromRoot: number; octaveOffset?: number; isRest?: boolean; isDeadNote?: boolean }> }>; playableKeys?: string[] },
+  profileId?: string,
+): NoteName[] {
+  const profile = getInstrumentProfile(profileId, exercise.instrument);
+  const roots = NOTE_NAMES.filter(r => !exercise.playableKeys?.length || exercise.playableKeys.includes(r));
+
+  const canVoiceEvent = (event: { notes: Array<{ semitoneFromRoot: number; octaveOffset?: number; isRest?: boolean; isDeadNote?: boolean }> }, rootMidi: number) => {
+    const playable = event.notes
+      .filter(note => !note.isRest && !note.isDeadNote)
+      .map(note => rootMidi + note.semitoneFromRoot + (note.octaveOffset || 0) * 12);
+    if (playable.length <= 1) {
+      return playable.every(midi => profile.strings.some(string => {
+        const fret = midi - string.midi;
+        return fret >= 0 && fret <= profile.maxFret;
+      }));
+    }
+    const candidates = playable.map(midi => profile.strings.flatMap(string => {
+      const fret = midi - string.midi;
+      return fret >= 0 && fret <= profile.maxFret ? [string.stringNumber] : [];
+    }));
+    const used = new Set<number>();
+    const assign = (index: number): boolean => {
+      if (index === candidates.length) return true;
+      for (const stringNumber of candidates[index]) {
+        if (used.has(stringNumber)) continue;
+        used.add(stringNumber);
+        if (assign(index + 1)) return true;
+        used.delete(stringNumber);
+      }
+      return false;
+    };
+    return assign(0);
+  };
+
+  return roots.filter(root => {
+    const { octave } = getDefaultRootOctaveAndAnchor(root, exercise.instrument);
+    const rootMidi = noteToMidi(root, octave);
+    return exercise.events.every(event => canVoiceEvent(event, rootMidi));
+  });
+}
+
+export function isExercisePlayableAtRootContext(
+  exercise: { instrument: InstrumentType; events: Array<{ notes: Array<{ semitoneFromRoot: number; octaveOffset?: number; isRest?: boolean; isDeadNote?: boolean }> }> },
+  rootName: string,
+  rootOctave: number,
+  profileId?: string,
+): boolean {
+  const profile = getInstrumentProfile(profileId, exercise.instrument);
+  const rootMidi = noteToMidi(rootName, rootOctave);
+  return exercise.events.every(event => {
+    const midis = event.notes
+      .filter(note => !note.isRest && !note.isDeadNote)
+      .map(note => rootMidi + note.semitoneFromRoot + (note.octaveOffset || 0) * 12);
+    const candidates = midis.map(midi => profile.strings.flatMap(string => {
+      const fret = midi - string.midi;
+      return fret >= 0 && fret <= profile.maxFret ? [string.stringNumber] : [];
+    }));
+    const used = new Set<number>();
+    const assign = (index: number): boolean => {
+      if (index === candidates.length) return true;
+      for (const stringNumber of candidates[index]) {
+        if (used.has(stringNumber)) continue;
+        used.add(stringNumber);
+        if (assign(index + 1)) return true;
+        used.delete(stringNumber);
+      }
+      return false;
+    };
+    return assign(0);
+  });
+}
+
+export function getRootContextForProfile(rootName: string, instrument: InstrumentType, profileId?: string) {
+  const profile = getInstrumentProfile(profileId, instrument);
+  const clean = (ENHARMONIC_MAP[rootName] || rootName) as NoteName;
+  const preferred = getDefaultRootOctaveAndAnchor(clean, instrument);
+  const rootMidi = noteToMidi(clean, preferred.octave);
+  const candidates = profile.strings
+    .map(s => ({ stringNumber: s.stringNumber, fret: rootMidi - s.midi }))
+    .filter(c => c.fret >= 0 && c.fret <= profile.maxFret)
+    .sort((a,b) => Math.abs(a.fret-preferred.anchorFret)-Math.abs(b.fret-preferred.anchorFret));
+  if (candidates.length) return { octave: preferred.octave, anchorFret: candidates[0].fret, anchorStringNumber: candidates[0].stringNumber };
+  // If the profile cannot realize the preferred register, move by octaves until it can.
+  for (const delta of [-1,1,-2,2,3,-3]) {
+    const octave = preferred.octave + delta;
+    const midi = noteToMidi(clean, octave);
+    const found = profile.strings
+      .map(s => ({ stringNumber: s.stringNumber, fret: midi - s.midi }))
+      .filter(c => c.fret >= 0 && c.fret <= profile.maxFret)
+      .sort((a,b) => Math.abs(a.fret-preferred.anchorFret)-Math.abs(b.fret-preferred.anchorFret))[0];
+    if (found) return { octave, anchorFret: found.fret, anchorStringNumber: found.stringNumber };
+  }
+  return { octave: preferred.octave, anchorFret: preferred.anchorFret, anchorStringNumber: instrument === 'bass' ? 4 : 6 };
+}
+
+
+export function getRootContextForExercise(
+  exercise: { instrument: InstrumentType; events: Array<{ notes: Array<{ semitoneFromRoot: number; octaveOffset?: number; isRest?: boolean; isDeadNote?: boolean }> }> },
+  rootName: string,
+  profileId?: string,
+) {
+  const profile = getInstrumentProfile(profileId, exercise.instrument);
+  const clean = (ENHARMONIC_MAP[rootName] || rootName) as NoteName;
+  const preferred = getDefaultRootOctaveAndAnchor(clean, exercise.instrument);
+  const octaves = [preferred.octave, preferred.octave - 1, preferred.octave + 1, preferred.octave - 2, preferred.octave + 2, preferred.octave - 3, preferred.octave + 3];
+
+  const fits = (rootMidi: number) => exercise.events.every(event => event.notes.every(note => {
+    if (note.isRest || note.isDeadNote) return true;
+    const midi = rootMidi + note.semitoneFromRoot + (note.octaveOffset || 0) * 12;
+    return profile.strings.some(string => {
+      const fret = midi - string.midi;
+      return fret >= 0 && fret <= profile.maxFret;
+    });
+  }));
+
+  for (const octave of octaves) {
+    const rootMidi = noteToMidi(clean, octave);
+    if (!fits(rootMidi)) continue;
+    const candidates = profile.strings
+      .map(s => ({ stringNumber: s.stringNumber, fret: rootMidi - s.midi }))
+      .filter(c => c.fret >= 0 && c.fret <= profile.maxFret)
+      .sort((a,b) => Math.abs(a.fret - preferred.anchorFret) - Math.abs(b.fret - preferred.anchorFret));
+    if (candidates.length) return { octave, anchorFret: candidates[0].fret, anchorStringNumber: candidates[0].stringNumber };
+  }
+
+  // Preserve a valid physical root anchor even for notation-only/out-of-range material.
+  return getRootContextForProfile(rootName, exercise.instrument, profileId);
+}
+
 export function getScaleNoteName(rootName: string, semitonesFromRoot: number): string {
   const rootIndex = NOTE_SEMITONES[rootName] ?? 0;
   const targetIndex = (rootIndex + semitonesFromRoot) % 12;
@@ -441,10 +573,12 @@ export function computeErgonomicExerciseFingerings(
     }
 
     if (list.length === 0) {
+      // Keep the data honest: there is no physically valid fingering at this register.
+      // A sentinel is used only so the DP remains total; the UI marks it unplayable.
       list.push({
         stringNumber: strings[0].stringNumber,
-        fret: Math.max(0, Math.min(maxFret, n.midi - strings[0].midi)),
-        cost: 200,
+        fret: 0,
+        cost: 100000,
         isRest: false,
         preferred: false,
       });

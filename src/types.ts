@@ -11,9 +11,26 @@ export type SourceType =
   | 'published-etude-collection'
   | 'published-transcription'
   | 'artist-method'
+  | 'artist-reference'
   | 'artist-transcription'
   | 'play-along-method'
   | 'ethnomusicology/reference'
+  | 'academic-article'
+  | 'ethnomusicology-book'
+  | 'music-history-reference'
+  | 'academic-book-chapter'
+  | 'music-theory-book'
+  | 'music-history'
+  | 'music-reference'
+  | 'academic-book'
+  | 'academic-dissertation'
+  | 'web-course'
+  | 'music-history-book'
+  | 'archive-reference'
+  | 'instructional-article'
+  | 'doctoral-thesis'
+  | 'academic-thesis-reference'
+  | 'guitar-method'
   | 'oral/tradition-reference'
   | 'original-synthesis'
   | 'verified-digital-course'
@@ -87,7 +104,9 @@ export type VariationType =
   | 'concept-duplicate'
   | 'key-variant'
   | 'orientation-variant'
-  | 'complement';
+  | 'complement'
+  | 'permutation'
+  | 'etude';
 
 export interface ExerciseSource {
   title: string;
@@ -115,7 +134,7 @@ export interface RhythmicStructure {
   customMetronomePattern?: Array<{ beat: number; isAccent: boolean }>;
   cycleStartBeat?: number;
 }
-export interface NoteDefinition { midi?:number; pitch:string; octave:number; step:string; accidental?:'b'|'#'|'n'|'##'|'bb'; duration?:string; stringNumber:number; fret:number; intervalDegree:string; isRoot?:boolean; isChordTone?:boolean; isRest?:boolean; isDeadNote?:boolean; noteRole?:string; localHarmony?:string; chordRootOffset?:number; technique?:string; velocity?:number; accent?:AccentType; microtiming?:Microtiming; eventIndex?:number; leftHandFinger?:string; rightHandFinger?:string; slurToNext?:boolean; }
+export interface NoteDefinition { midi?:number; isPlayable?: boolean; pitch:string; octave:number; step:string; accidental?:'b'|'#'|'n'|'##'|'bb'; duration?:string; stringNumber:number; fret:number; intervalDegree:string; isRoot?:boolean; isChordTone?:boolean; isRest?:boolean; isDeadNote?:boolean; noteRole?:string; localHarmony?:string; chordRootOffset?:number; technique?:string; velocity?:number; accent?:AccentType; microtiming?:Microtiming; eventIndex?:number; leftHandFinger?:string; rightHandFinger?:string; slurToNext?:boolean; }
 export interface FretboardPosition { stringIndex:number; fret:number; noteName:string; octave:number; midi:number; }
 export interface ActiveNoteState { index:number; note:NoteDefinition; }
 
@@ -163,6 +182,8 @@ export interface ExerciseItem {
   librarySections?: LibrarySection[];
   instrumentExerciseCategory?: InstrumentExerciseCategory;
   instrumentExerciseSubcategory?: string;
+  /** Optional human-readable reference context. Not a claim of transcription/source derivation. */
+  sourceReferenceType?: 'source' | 'reference-context' | 'original';
     }
 
 export interface SourceBibliographyItem {

@@ -4,11 +4,22 @@ import { AccentType, Microtiming } from '../types';
 import { WorkletSynthesizer } from 'spessasynth_lib';
 
 export interface PlaybackNote {
-  midi: number; duration: string; velocity?: number; accent?: AccentType; microtiming?: Microtiming; isRest?: boolean;
+  midi: number;
+  duration: string;
+  velocity?: number;
+  accent?: AccentType;
+  microtiming?: Microtiming;
+  /** Exact deterministic offset in quarter-note beats. */
+  microtimingOffsetBeats?: number;
+  isRest?: boolean;
 }
 export interface PlaybackEvent {
-  startBeat: number; duration: string; notes: PlaybackNote[];
+  startBeat: number;
+  duration: string;
+  notes: PlaybackNote[];
 }
+
+type ScheduledVoice = { oscillators: OscillatorNode[]; gain: GainNode };
 
 class SoundEngine {
   private ctx: AudioContext | null = null;
@@ -22,10 +33,14 @@ class SoundEngine {
   private timeSignatureDenominator = 4;
   private metronomeGroupSize = 1;
   private currentBeat = 0;
-  private metronomeTimeStart = 0;
-  private customMetronomePattern: Array<{beat: number, isAccent: boolean}> | null = null;
-  private timerId: number | null = null;
-  private exerciseTimerId: number | null = null;
+  private customMetronomePattern: Array<{ beat: number; isAccent: boolean }> | null = null;
+  private metronomeScheduler: number | null = null;
+  private exerciseScheduler: number | null = null;
+  private completionTimer: number | null = null;
+  private exerciseGeneration = 0;
+  private scheduledCallbacks = new Set<number>();
+  private metronomeCallbacks = new Set<number>();
+  private scheduledVoices = new Set<ScheduledVoice>();
   private onBeatCallbacks: Set<(beat: number) => void> = new Set();
   private onExerciseStopCallbacks: Set<() => void> = new Set();
 
@@ -35,11 +50,7 @@ class SoundEngine {
       this.ctx = new AudioCtx();
     }
     if (this.ctx.state === 'suspended') {
-      try {
-        await this.ctx.resume();
-      } catch (err) {
-        console.warn('AudioContext resume failed:', err);
-      }
+      try { await this.ctx.resume(); } catch {}
     }
     return this.ctx;
   }
@@ -47,9 +58,7 @@ class SoundEngine {
   public initSynthBackground(): void {
     if (this.synthInitAttempted) return;
     this.synthInitAttempted = true;
-    this.doInitSynth().catch(err => {
-      console.info('SoundFont enhancement unavailable; continuing with built-in Web Audio synth.', err);
-    });
+    this.doInitSynth().catch(() => {});
   }
 
   private async doInitSynth(): Promise<void> {
@@ -59,23 +68,18 @@ class SoundEngine {
       const synthInstance = new WorkletSynthesizer(ctx);
       synthInstance.connect(ctx.destination);
       await synthInstance.isReady;
-
       const sfResponse = await fetch('/trimmed.sf2');
       if (!sfResponse.ok) return;
-      const sfBuffer = await sfResponse.arrayBuffer();
-      await synthInstance.soundBankManager.addSoundBank(sfBuffer, 'main');
-
-      // Clean guitar (ch 0), Finger bass (ch 1), Percussion (ch 9)
+      await synthInstance.soundBankManager.addSoundBank(await sfResponse.arrayBuffer(), 'main');
       try {
         synthInstance.programChange(0, 27);
         synthInstance.programChange(1, 33);
         synthInstance.programChange(9, 0);
       } catch {}
-
       this.synth = synthInstance;
       this.isSynthReady = true;
-    } catch (err) {
-      console.info('WorkletSynthesizer fallback to procedural Web Audio synth:', err);
+    } catch {
+      // Procedural Web Audio remains the timing-accurate fallback.
     }
   }
 
@@ -84,27 +88,42 @@ class SoundEngine {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       this.ctx = new AudioCtx();
     }
-    if (this.ctx.state === 'suspended') {
-      this.ctx.resume().catch(() => {});
-    }
+    if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
     return this.ctx;
   }
 
+  private clearTimer(ref: number | null) {
+    if (ref !== null) window.clearTimeout(ref);
+  }
+
+  private clearScheduledCallbacks() {
+    this.scheduledCallbacks.forEach(id => window.clearTimeout(id));
+    this.scheduledCallbacks.clear();
+  }
+
+  private clearScheduledVoices() {
+    const ctx = this.ctx;
+    if (!ctx) return;
+    for (const voice of this.scheduledVoices) {
+      try { voice.gain.gain.cancelScheduledValues(ctx.currentTime); voice.gain.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.008); } catch {}
+      for (const osc of voice.oscillators) {
+        try { osc.stop(ctx.currentTime + 0.025); } catch {}
+      }
+    }
+    this.scheduledVoices.clear();
+  }
+
   public playClick(isAccent = false) {
-    const ctx = this.getContextSync();
-    const now = ctx.currentTime;
-    
     if (this.isSynthReady && this.synth) {
       try {
         const note = isAccent ? 76 : 77;
-        this.synth.noteOn(9, note, 100);
-        window.setTimeout(() => {
-          try { this.synth?.noteOff(9, note); } catch {}
-        }, 80);
+        this.synth.noteOn(9, note, isAccent ? 112 : 96);
+        window.setTimeout(() => { try { this.synth?.noteOff(9, note); } catch {} }, 55);
         return;
       } catch {}
     }
-
+    const ctx = this.getContextSync();
+    const now = ctx.currentTime;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = isAccent ? 'triangle' : 'sine';
@@ -116,34 +135,22 @@ class SoundEngine {
     osc.start(now); osc.stop(now + 0.055);
   }
 
-  public playStringNote(
-    midi: number,
-    isBass = true,
-    durationSec = 0.45,
-    velocity = 100,
-    accent: AccentType = 'normal'
-  ) {
-    const ctx = this.getContextSync();
-    const now = ctx.currentTime;
-    
+  public playStringNote(midi: number, isBass = true, durationSec = 0.45, velocity = 100, accent: AccentType = 'normal') {
     if (this.isSynthReady && this.synth) {
       try {
         const channel = isBass ? 1 : 0;
-        const normalizedVelocity = Math.max(1, Math.min(127, velocity));
-        let accentVel = normalizedVelocity;
-        let sustain = 1.0;
-        if (accent === 'marcato') { accentVel = Math.min(127, normalizedVelocity + 20); sustain = 1.08; }
-        else if (accent === 'accent') { accentVel = Math.min(127, normalizedVelocity + 15); sustain = 1.0; }
-        else if (accent === 'ghost') { accentVel = Math.max(1, normalizedVelocity - 40); sustain = 0.55; }
-        
-        this.synth.noteOn(channel, midi, accentVel);
-        window.setTimeout(() => {
-          try { this.synth?.noteOff(channel, midi); } catch {}
-        }, Math.max(50, durationSec * sustain * 1000));
+        const v = Math.max(1, Math.min(127, velocity + (accent === 'accent' ? 12 : accent === 'marcato' ? 18 : accent === 'ghost' ? -35 : 0)));
+        this.synth.noteOn(channel, midi, v);
+        window.setTimeout(() => { try { this.synth?.noteOff(channel, midi); } catch {} }, Math.max(50, durationSec * 1000));
         return;
       } catch {}
     }
+    this.scheduleProceduralNote(this.getContextSync().currentTime, midi, durationSec, isBass, velocity, accent);
+  }
 
+  private scheduleProceduralNote(at: number, midi: number, durationSec: number, isBass: boolean, velocity: number, accent: AccentType) {
+    const ctx = this.getContextSync();
+    const safeAt = Math.max(at, ctx.currentTime + 0.001);
     const freq = midiToFrequency(midi);
     const normalizedVelocity = Math.max(1, Math.min(127, velocity)) / 127;
     const velocityGain = Math.pow(normalizedVelocity, 1.5);
@@ -157,25 +164,41 @@ class SoundEngine {
     const gain = ctx.createGain();
     osc1.type = isBass ? 'triangle' : 'sawtooth';
     osc2.type = isBass ? 'sine' : 'triangle';
-    osc1.frequency.setValueAtTime(freq, now);
-    osc2.frequency.setValueAtTime(freq * (isBass ? 2 : 1.002), now);
+    osc1.frequency.setValueAtTime(freq, safeAt);
+    osc2.frequency.setValueAtTime(freq * (isBass ? 2 : 1.002), safeAt);
     filter.type = 'lowpass';
     const brightness = isGhost ? 0.58 : accent === 'marcato' ? 1.15 : 1;
     const cutoff = (isBass ? Math.min(1800, freq * 6) : Math.min(4000, freq * 8)) * brightness;
-    filter.frequency.setValueAtTime(Math.max(120, cutoff), now);
-    filter.frequency.exponentialRampToValueAtTime(Math.max(80, freq * 1.5), now + durationSec);
+    filter.frequency.setValueAtTime(Math.max(120, cutoff), safeAt);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(80, freq * 1.5), safeAt + durationSec);
     const peak = (isBass ? 0.85 : 0.65) * velocityGain * accentGain;
-    gain.gain.setValueAtTime(0.001, now);
-    gain.gain.linearRampToValueAtTime(Math.max(0.001, peak), now + 0.008);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + Math.max(0.08, durationSec * sustain));
+    const end = safeAt + Math.max(0.08, durationSec * sustain);
+    gain.gain.setValueAtTime(0.0001, safeAt);
+    gain.gain.linearRampToValueAtTime(Math.max(0.001, peak), safeAt + 0.006);
+    gain.gain.exponentialRampToValueAtTime(0.0001, end);
     osc1.connect(filter); osc2.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
-    osc1.start(now); osc2.start(now);
-    osc1.stop(now + durationSec + 0.05); osc2.stop(now + durationSec + 0.05);
+    const voice: ScheduledVoice = { oscillators: [osc1, osc2], gain };
+    this.scheduledVoices.add(voice);
+    const cleanup = () => this.scheduledVoices.delete(voice);
+    osc1.addEventListener('ended', cleanup, { once: true });
+    osc1.start(safeAt); osc2.start(safeAt);
+    osc1.stop(end + 0.03); osc2.stop(end + 0.03);
   }
 
-  public async startMetronome(bpm: number, beats = 4, denominator = 4, customPattern?: Array<{beat: number, isAccent: boolean}>) {
+  private microtimingOffsetBeats(feel: Microtiming | undefined, startBeat: number): number {
+    if (!feel || feel === 'straight') return 0;
+    if (feel === 'laid-back') return 0.06;
+    if (feel === 'ahead') return -0.06;
+    const eighthPosition = Math.round(startBeat * 2);
+    if (Math.abs(startBeat * 2 - eighthPosition) > 0.001 || eighthPosition % 2 === 0) return 0;
+    if (feel === 'shuffle') return 0.14;
+    return feel === 'swing-heavy' ? 0.16 : 0.09;
+  }
+
+  private metronomeBeatUnits() { return 4 / this.timeSignatureDenominator; }
+
+  public async startMetronome(bpm: number, beats = 4, denominator = 4, customPattern?: Array<{ beat: number; isAccent: boolean }>) {
     await this.ensureContext();
-    this.initSynthBackground();
     this.stopMetronome();
     this.tempo = bpm;
     this.timeSignatureBeats = beats;
@@ -184,131 +207,120 @@ class SoundEngine {
     this.customMetronomePattern = customPattern || null;
     this.isMetronomePlaying = true;
     this.currentBeat = 0;
-    this.metronomeTimeStart = performance.now();
-    this.runMetronomeTick();
+    this.scheduleMetronomeAhead();
   }
 
   public stopMetronome() {
     this.isMetronomePlaying = false;
-    if (this.timerId !== null) { window.clearTimeout(this.timerId); this.timerId = null; }
+    this.clearTimer(this.metronomeScheduler);
+    this.metronomeScheduler = null;
+    this.metronomeCallbacks.forEach(id => window.clearTimeout(id));
+    this.metronomeCallbacks.clear();
   }
 
   public updateTempo(bpm: number) { this.tempo = bpm; }
   public updateTimeSignature(beats: number) { this.timeSignatureBeats = beats; }
 
-  private runMetronomeTick = () => {
+  private scheduleMetronomeAhead = () => {
     if (!this.isMetronomePlaying) return;
-    
-    let isAccent = false;
-    let shouldPlay = true;
-    
-    if (this.customMetronomePattern) {
-        const patternEvent = this.customMetronomePattern.find(p => Math.abs(p.beat - this.currentBeat) < 0.05);
-        if (patternEvent) {
-            shouldPlay = true;
-            isAccent = patternEvent.isAccent;
-        } else {
-            shouldPlay = false;
-        }
-    } else {
-        isAccent = this.currentBeat === 0 || (this.metronomeGroupSize > 1 && this.currentBeat % this.metronomeGroupSize === 0);
+    const ctx = this.getContextSync();
+    const now = ctx.currentTime;
+    const beatSec = (60 / this.tempo) * this.metronomeBeatUnits();
+    const horizon = now + 0.12;
+    let beat = this.currentBeat;
+    let at = now + 0.01;
+    while (at < horizon) {
+      const patternEvent = this.customMetronomePattern?.find(p => Math.abs(p.beat - beat) < 0.001);
+      const shouldPlay = patternEvent ? true : !this.customMetronomePattern;
+      const isAccent = patternEvent ? patternEvent.isAccent : beat === 0 || (this.metronomeGroupSize > 1 && beat % this.metronomeGroupSize === 0);
+      if (shouldPlay) {
+        const delay = Math.max(0, (at - ctx.currentTime) * 1000);
+        const timer = window.setTimeout(() => { if (this.isMetronomePlaying) this.playClick(isAccent); this.metronomeCallbacks.delete(timer); }, delay);
+        this.metronomeCallbacks.add(timer);
+      }
+      this.onBeatCallbacks.forEach(cb => cb(beat));
+      beat = (beat + 1) % this.timeSignatureBeats;
+      at += beatSec;
     }
-    
-    if (shouldPlay) {
-      this.playClick(isAccent);
-    }
-    
-    this.onBeatCallbacks.forEach(cb => cb(this.currentBeat));
-    this.currentBeat = (this.currentBeat + 1) % this.timeSignatureBeats;
-    const subdivisionMs = (60 / this.tempo) * 1000 * (4 / this.timeSignatureDenominator);
-    this.timerId = window.setTimeout(this.runMetronomeTick, subdivisionMs);
+    this.currentBeat = beat;
+    this.metronomeScheduler = window.setTimeout(this.scheduleMetronomeAhead, 45);
   };
-
-  private microtimingOffsetMs(feel: Microtiming | undefined, bpm: number, startBeat: number): number {
-    if (!feel || feel === 'straight') return 0;
-    const beatMs = (60 / bpm) * 1000;
-    if (feel === 'laid-back') return beatMs * 0.06;
-    if (feel === 'ahead') return -beatMs * 0.06;
-    const eighthPosition = Math.round(startBeat * 2);
-    if (Math.abs(startBeat * 2 - eighthPosition) > 0.001 || eighthPosition % 2 === 0) return 0;
-    if (feel === 'shuffle') return 0.14 * beatMs;
-    return (feel === 'swing-heavy' ? 0.16 : 0.09) * beatMs;
-  }
 
   public async playExercise(
     events: PlaybackEvent[], bpm: number, isBass: boolean, onEvent: (index: number) => void,
-    onComplete?: () => void, feelOverride?: Microtiming | 'exercise',
-    loop: boolean = false, cycleBeats: number = 4
+    onComplete?: () => void, feelOverride?: Microtiming | 'exercise', loop = false, cycleBeats = 4
   ) {
-    await this.ensureContext();
-    this.initSynthBackground();
+    const ctx = await this.ensureContext();
     this.stopExercise(false);
     if (!events.length) return;
-
     this.isExercisePlaying = true;
-    let loopStart = performance.now();
-    let timer: number | null = null;
-    const finish = () => {
-      if (timer !== null) window.clearTimeout(timer);
-      this.isExercisePlaying = false;
-      onComplete?.();
-      this.onExerciseStopCallbacks.forEach(cb => cb());
-    };
-    const scheduleCycle = () => {
-      loopStart = performance.now();
-      const scheduleNext = (index: number) => {
-        if (!this.isExercisePlaying) return;
-        if (index >= events.length) {
-          if (loop) {
-            const cycleMs = (60 / bpm) * 1000 * Math.max(1, cycleBeats);
-            const remaining = Math.max(10, cycleMs - (performance.now() - loopStart));
-            timer = window.setTimeout(() => {
-              if (this.isExercisePlaying) scheduleCycle();
-            }, remaining);
-            this.exerciseTimerId = timer;
-          } else {
-            const lastEvent = events[events.length - 1];
-            const lastQuarter = durationToQuarterUnits(lastEvent?.duration || 'q') || 1;
-            const lastDurationMs = (60 / bpm) * 1000 * lastQuarter;
-            timer = window.setTimeout(() => {
-              if (this.isExercisePlaying) finish();
-            }, lastDurationMs);
-            this.exerciseTimerId = timer;
-          }
-          return;
-        }
-        const e = events[index];
-        const feel = feelOverride && feelOverride !== 'exercise' ? feelOverride : e.notes.find(n => n.microtiming)?.microtiming;
-        const nominalMs = (60 / bpm) * 1000 * e.startBeat;
-        const offsetMs = this.microtimingOffsetMs(feel, bpm, e.startBeat);
-        const delay = Math.max(0, nominalMs + offsetMs - (performance.now() - loopStart));
-        timer = window.setTimeout(() => {
-          if (!this.isExercisePlaying) return;
-          const durationSec = Math.max(0.06, (60 / bpm) * (durationToQuarterUnits(e.duration) || 0.25) * 0.92);
+    this.tempo = bpm;
+    const generation = ++this.exerciseGeneration;
+    const ordered = [...events].sort((a,b) => a.startBeat-b.startBeat);
+    const actualSpan = Math.max(0, ...ordered.map(e => e.startBeat + durationToQuarterUnits(e.duration)));
+    const cycle = Math.max(cycleBeats || 0, actualSpan);
+    const beatSeconds = 60 / bpm;
+    const lookAheadSeconds = 0.16;
+    const baseStart = ctx.currentTime + 0.04;
+    let scheduledThrough = 0;
+    let nextCycle = 0;
+
+    const scheduleWindow = () => {
+      if (!this.isExercisePlaying || generation !== this.exerciseGeneration) return;
+      const now = ctx.currentTime;
+      const horizon = now + lookAheadSeconds;
+      while (nextCycle * cycle * beatSeconds + baseStart < horizon) {
+        const cycleStart = baseStart + nextCycle * cycle * beatSeconds;
+        for (const [index,e] of ordered.entries()) {
+          const feel = feelOverride && feelOverride !== 'exercise' ? feelOverride : e.notes.find(n => n.microtiming)?.microtiming;
           for (const note of e.notes) {
-            const isRest = note.isRest ?? isRestDuration(note.duration);
-            if (!isRest) this.playStringNote(note.midi, isBass, durationSec, note.velocity ?? 100, note.accent ?? 'normal');
+            if (note.isRest || isRestDuration(note.duration)) continue;
+            const offset = (note.microtimingOffsetBeats ?? this.microtimingOffsetBeats(feel, e.startBeat));
+            const noteAt = cycleStart + Math.max(0, e.startBeat + offset) * beatSeconds;
+            const durationSec = Math.max(0.06, durationToQuarterUnits(note.duration) * beatSeconds * 0.92);
+            this.scheduleProceduralNote(noteAt, note.midi, durationSec, isBass, note.velocity ?? 100, note.accent ?? 'normal');
+            const delayMs = Math.max(0, (noteAt - ctx.currentTime) * 1000);
+            const activeTimer = window.setTimeout(() => { if (this.isExercisePlaying && generation === this.exerciseGeneration) onEvent(index); this.scheduledCallbacks.delete(activeTimer); }, delayMs);
+            this.scheduledCallbacks.add(activeTimer);
           }
-          onEvent(index);
-          scheduleNext(index + 1);
-        }, delay);
-        this.exerciseTimerId = timer;
-      };
-      scheduleNext(0);
+        }
+        nextCycle++;
+      }
+      scheduledThrough = Math.max(scheduledThrough, nextCycle * cycle * beatSeconds);
+      if (loop) {
+        this.exerciseScheduler = window.setTimeout(scheduleWindow, 35);
+      } else if (nextCycle > 0) {
+        const endAt = baseStart + actualSpan * beatSeconds;
+        if (endAt > now) {
+          this.completionTimer = window.setTimeout(() => {
+            if (this.isExercisePlaying && generation === this.exerciseGeneration) this.finishExercise(onComplete);
+          }, Math.max(20, (endAt - ctx.currentTime) * 1000));
+        }
+      }
     };
-    scheduleCycle();
+    void scheduledThrough;
+    scheduleWindow();
+  }
+
+  private finishExercise(onComplete?: () => void) {
+    this.isExercisePlaying = false;
+    this.clearTimer(this.exerciseScheduler); this.exerciseScheduler = null;
+    this.clearTimer(this.completionTimer); this.completionTimer = null;
+    onComplete?.();
+    this.onExerciseStopCallbacks.forEach(cb => cb());
   }
 
   public stopExercise(notify = true) {
+    this.exerciseGeneration++;
     this.isExercisePlaying = false;
-    if (this.exerciseTimerId !== null) { window.clearTimeout(this.exerciseTimerId); this.exerciseTimerId = null; }
-
-    if (this.isSynthReady && this.synth) {
-      try { this.synth.stopAll(); } catch {}
-    }
-
+    this.clearTimer(this.exerciseScheduler); this.exerciseScheduler = null;
+    this.clearTimer(this.completionTimer); this.completionTimer = null;
+    this.clearScheduledCallbacks();
+    this.clearScheduledVoices();
+    if (this.isSynthReady && this.synth) { try { this.synth.stopAll(); } catch {} }
     if (notify) this.onExerciseStopCallbacks.forEach(cb => cb());
   }
+
   public isExerciseActive() { return this.isExercisePlaying; }
   public isMetronomeActive() { return this.isMetronomePlaying; }
   public subscribeBeat(cb: (beat: number) => void) { this.onBeatCallbacks.add(cb); return () => this.onBeatCallbacks.delete(cb); }
