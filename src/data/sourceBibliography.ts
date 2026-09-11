@@ -73,7 +73,9 @@ export const SOURCE_BIBLIOGRAPHY = [
       "J-rock",
       "visual kei",
       "Japanese metal",
-      "rock history"
+      "rock history",
+      "guitar",
+      "bass"
     ]
   },
   {
@@ -866,6 +868,345 @@ export const SOURCE_BIBLIOGRAPHY = [
       "percussive effects",
       "milonga",
       "vals"
+    ]
+  },
+  {
+    "id": "african-guitarism-collins",
+    "title": "African Guitarism: One Hundred Years of West African Highlife",
+    "author": "John Collins",
+    "language": "English",
+    "sourceType": "academic-article",
+    "verificationStatus": "verified",
+    "publisher": "Legon Journal of the Humanities",
+    "scope": [
+      "West African guitar",
+      "highlife",
+      "palm-wine guitar",
+      "interlocking guitar patterns",
+      "juju",
+      "makossa",
+      "soukous"
+    ]
+  },
+  {
+    "id": "cambridge-electric-guitar-africa",
+    "title": "African Electrical Networks",
+    "author": "The Cambridge Companion to the Electric Guitar",
+    "language": "English",
+    "sourceType": "academic-book-chapter",
+    "verificationStatus": "verified",
+    "publisher": "Cambridge University Press",
+    "scope": [
+      "African electric guitar",
+      "highlife",
+      "soukou",
+      "guitar pedagogy",
+      "African guitar networks"
+    ]
+  },
+  {
+    "id": "zouk-guilbault",
+    "title": "Zouk: World Music in the West Indies",
+    "author": "Jocelyne Guilbault",
+    "language": "English",
+    "sourceType": "ethnomusicology-book",
+    "verificationStatus": "verified",
+    "publisher": "University of Chicago Press",
+    "scope": [
+      "zouk",
+      "compas direct",
+      "cadence-lypso",
+      "French Caribbean popular music",
+      "bass",
+      "guitar"
+    ]
+  },
+  {
+    "id": "awakening-spaces-berrian",
+    "title": "Awakening Spaces: French Caribbean Popular Songs, Music, and Culture",
+    "author": "Brenda F. Berrian",
+    "language": "English",
+    "sourceType": "ethnomusicology-book",
+    "verificationStatus": "verified",
+    "publisher": "University of Chicago Press",
+    "scope": [
+      "zouk",
+      "biguine",
+      "French Caribbean",
+      "Kassav",
+      "guitar",
+      "rhythm section"
+    ]
+  },
+  {
+    "id": "o-nosso-semba",
+    "title": "O Nosso Semba",
+    "author": "Pedro da Rosa",
+    "language": "Portuguese",
+    "sourceType": "music-history-book",
+    "verificationStatus": "verified",
+    "scope": [
+      "Angolan semba",
+      "Angolan popular music",
+      "guitar",
+      "bass",
+      "ensemble"
+    ]
+  },
+  {
+    "id": "haitian-music-archive-kompa",
+    "title": "Haitian Music Archive — Kompa musician and bass reference",
+    "author": "Open Music Archive / Haitian Music Archive",
+    "language": "English",
+    "sourceType": "archive-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Haitian kompa",
+      "konpa direk",
+      "bass guitar",
+      "guitar",
+      "System Band"
+    ]
+  },
+  {
+    "id": "pragmatic-carnatic-guitar-berklee",
+    "title": "Using Gamaka to Add Indian Flavor to Your Guitar Playing",
+    "author": "Prasanna",
+    "language": "English",
+    "sourceType": "instructional-article",
+    "verificationStatus": "verified",
+    "publisher": "Berklee College of Music",
+    "scope": [
+      "Carnatic guitar",
+      "gamaka",
+      "raga",
+      "tala",
+      "rock fusion",
+      "metal fusion"
+    ]
+  },
+  {
+    "id": "guitar-prasanna-bio",
+    "title": "Guitar Prasanna — Bio and Carnatic/Rock Guitar Reference",
+    "author": "R. Prasanna",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Carnatic guitar",
+      "Indian rock",
+      "Indian metal",
+      "jazz rock",
+      "world fusion"
+    ]
+  },
+  {
+    "id": "indonesian-metal-gamelan-cellini",
+    "title": "Some Analytical Consideration on Indonesian Metal Music",
+    "author": "Gianluca Cellini",
+    "language": "English",
+    "sourceType": "academic-article",
+    "verificationStatus": "verified",
+    "publisher": "International Journal of Creative and Arts Studies",
+    "scope": [
+      "Indonesian metal",
+      "folk metal",
+      "Balinese gamelan interlocking",
+      "metal guitar",
+      "bass",
+      "rhythmic hierarchy"
+    ]
+  },
+  {
+    "id": "chinese-metal-history-wang",
+    "title": "Histories of Chinese Metal",
+    "author": "Wang Hui",
+    "language": "English",
+    "sourceType": "doctoral-thesis",
+    "verificationStatus": "verified",
+    "scope": [
+      "Chinese metal",
+      "Chinese rock",
+      "guitar",
+      "metal guitar culture",
+      "heavy metal"
+    ]
+  },
+  {
+    "id": "dreamspirit-chinese-folk-metal",
+    "title": "DreamSpirit — Chinese Folk Metal Artist Reference",
+    "author": "DreamSpirit",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Chinese folk metal",
+      "Chinese folk melody",
+      "heavy guitar riffs",
+      "guitar",
+      "bass",
+      "erhu",
+      "guzheng"
+    ]
+  },
+  {
+    "id": "nine-treasures-folk-metal",
+    "title": "Nine Treasures — Mongolian/Chinese Folk Metal Reference",
+    "author": "Nine Treasures",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Mongolian folk metal",
+      "Chinese folk metal",
+      "tovshuur",
+      "morin khuur",
+      "guitar",
+      "bass"
+    ]
+  },
+  {
+    "id": "mongolian-folk-rock-uuhai",
+    "title": "UUHAI Official — Mongolian Rock Metal Reference",
+    "author": "UUHAI",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Mongolian rock metal",
+      "throat singing",
+      "morin khuur",
+      "guitar",
+      "bass",
+      "long song"
+    ]
+  },
+  {
+    "id": "guitarrada-opus-vieira",
+    "title": "Lambadas das Quebradas Vol. 1: a origem da lambada/guitarrada de Mestre Vieira",
+    "author": "OPUS / Associação Nacional de Pesquisa e Pós-Graduação em Música",
+    "language": "Portuguese",
+    "sourceType": "academic-article",
+    "verificationStatus": "verified",
+    "scope": [
+      "guitarrada",
+      "lambada",
+      "Pará",
+      "Mestre Vieira",
+      "electric guitar"
+    ]
+  },
+  {
+    "id": "aldo-sena-ufpa",
+    "title": "Aldo Sena — Um Guitarreiro da Amazônia",
+    "author": "Max David da Silva Tavares / Universidade Federal do Pará",
+    "language": "Portuguese",
+    "sourceType": "academic-thesis-reference",
+    "verificationStatus": "verified",
+    "publisher": "UFPA",
+    "scope": [
+      "guitarrada",
+      "Pará guitar",
+      "electric guitar",
+      "lambada"
+    ]
+  },
+  {
+    "id": "technobrega-reference",
+    "title": "Technobrega / Tecnobrega Regional Music Reference",
+    "author": "Brazilian popular-music reference sources",
+    "language": "Portuguese",
+    "sourceType": "music-history-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "technobrega",
+      "tecnomelody",
+      "synth music",
+      "Pará",
+      "electronic production"
+    ]
+  },
+  {
+    "id": "indian-slide-guitar-bhattacharya",
+    "title": "Hindustani Slide Guitar Reference",
+    "author": "Debashish Bhattacharya",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Hindustani guitar",
+      "slide guitar",
+      "raga",
+      "meend",
+      "ornamentation"
+    ]
+  },
+  {
+    "id": "celtic-guitar-encyclopedia",
+    "title": "Celtic Guitar Encyclopedia — Fingerstyle Guitar Edition",
+    "author": "Glenn Weiser",
+    "language": "English",
+    "sourceType": "guitar-method",
+    "verificationStatus": "verified",
+    "publisher": "Mel Bay Publications",
+    "scope": [
+      "Celtic guitar",
+      "jigs",
+      "reels",
+      "hornpipes",
+      "airs",
+      "marches",
+      "waltzes"
+    ]
+  },
+  {
+    "id": "greek-rebetiko-theory",
+    "title": "The Theory of Rebetiko: From the Makams of Asia Minor to the Dromi of Piraeus",
+    "author": "Carmelo Siciliano",
+    "language": "English",
+    "sourceType": "music-theory-book",
+    "verificationStatus": "verified",
+    "scope": [
+      "Greek music",
+      "rebetiko",
+      "dromi",
+      "makam",
+      "guitar",
+      "modal accompaniment"
+    ]
+  },
+  {
+    "id": "inside-arabic-music",
+    "title": "Inside Arabic Music: Arabic Maqam Performance and Theory in the 20th Century",
+    "author": "Johnny Farraj and Sami Abu Shumays",
+    "language": "English",
+    "sourceType": "music-theory-book",
+    "verificationStatus": "verified",
+    "publisher": "Oxford University Press",
+    "scope": [
+      "Arabic maqam",
+      "iqa'at",
+      "maqsum",
+      "saidi",
+      "ornamentation",
+      "guitar and Arabized instruments"
+    ]
+  },
+  {
+    "id": "klezmer-feldman",
+    "title": "Klezmer: Music, History, and Memory",
+    "author": "Walter Zev Feldman",
+    "language": "English",
+    "sourceType": "ethnomusicology-book",
+    "verificationStatus": "verified",
+    "publisher": "Oxford University Press",
+    "scope": [
+      "Klezmer",
+      "Freygish",
+      "Freylekhs",
+      "Bulgar",
+      "dance repertoire",
+      "Eastern European Jewish music"
     ]
   }
 ];
