@@ -10,6 +10,8 @@ import {
 import { ALL_BASS_EXERCISES, ALL_GUITAR_EXERCISES } from './data/exercises';
 import {
   noteToMidi,
+  findOptimalFingering,
+  findChordFingerings,
   computeErgonomicExerciseFingerings,
   getEnharmonicPitch,
   getDynamicIntervalDegree,

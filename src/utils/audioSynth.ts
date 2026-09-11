@@ -22,6 +22,7 @@ class SoundEngine {
   private timeSignatureDenominator = 4;
   private metronomeGroupSize = 1;
   private currentBeat = 0;
+  private metronomeTimeStart = 0;
   private customMetronomePattern: Array<{beat: number, isAccent: boolean}> | null = null;
   private timerId: number | null = null;
   private exerciseTimerId: number | null = null;
@@ -54,13 +55,12 @@ class SoundEngine {
   private async doInitSynth(): Promise<void> {
     const ctx = await this.ensureContext();
     try {
-      const baseUrl = import.meta.env.BASE_URL;
-      await ctx.audioWorklet.addModule(`${baseUrl}spessasynth_processor.min.js`);
+      await ctx.audioWorklet.addModule('/spessasynth_processor.min.js');
       const synthInstance = new WorkletSynthesizer(ctx);
       synthInstance.connect(ctx.destination);
       await synthInstance.isReady;
 
-      const sfResponse = await fetch(`${baseUrl}trimmed.sf2`);
+      const sfResponse = await fetch('/trimmed.sf2');
       if (!sfResponse.ok) return;
       const sfBuffer = await sfResponse.arrayBuffer();
       await synthInstance.soundBankManager.addSoundBank(sfBuffer, 'main');
@@ -184,6 +184,7 @@ class SoundEngine {
     this.customMetronomePattern = customPattern || null;
     this.isMetronomePlaying = true;
     this.currentBeat = 0;
+    this.metronomeTimeStart = performance.now();
     this.runMetronomeTick();
   }
 
@@ -193,6 +194,7 @@ class SoundEngine {
   }
 
   public updateTempo(bpm: number) { this.tempo = bpm; }
+  public updateTimeSignature(beats: number) { this.timeSignatureBeats = beats; }
 
   private runMetronomeTick = () => {
     if (!this.isMetronomePlaying) return;

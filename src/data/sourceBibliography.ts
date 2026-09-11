@@ -1,21 +1,145 @@
-export interface SourceBibliographyItem {
-  id: string; title: string; author: string; language?: string; sourceType: string; verificationStatus: string;
-  publisher?: string; publicationYear?: number; scope?: string[];
-}
-
-export const SOURCE_BIBLIOGRAPHY: SourceBibliographyItem[] = [
-  {"id":"mongolian-folk-metal","title":"Tengger Cavalry — Mongolian Folk Rock/Metal Reference","author":"Tengger Cavalry / Nature Ganganbaigal","language":"English","sourceType":"artist-reference","verificationStatus":"verified","scope":["Mongolian folk metal","throat singing","morin khuur","Central Asian instruments","folk metal"]},
-  {"id":"taiwanese-rock-reference","title":"A History of Taiwanese Rock: Thirty Years from the Underground to the Mainstream","author":"Taiwan.md editorial reference","language":"English","sourceType":"music-history-reference","verificationStatus":"verified","scope":["Taiwanese rock","Taiwanese rock history","Taiwanese metal","independent rock"]},
-  {"id":"chinese-rock-vernacular","title":"Modernizing Chinese Vernacular Music — From Red Songs to Rock Music","author":"Ya-Hui Cheng","language":"English","sourceType":"academic-book-chapter","verificationStatus":"verified","publisher":"Routledge","scope":["Chinese rock","Northwest Wind","Cui Jian","Chinese vernacular music"]},
-  {"id":"japrocksampler","title":"Japrocksampler: How the Post-war Japanese Blew Their Minds on Rock 'n' Roll","author":"Julian Cope","language":"English","sourceType":"music-history","verificationStatus":"verified","publisher":"Bloomsbury","publicationYear":2007,"scope":["Japanese rock","Japanese progressive rock","Japanese heavy rock","post-war Japanese music"]},
-  {"id":"jrock-ink","title":"Jrock, Ink: A Concise Report on 40 of the Biggest Rock Acts in Japan","author":"Josephine Yun","language":"English","sourceType":"music-reference","verificationStatus":"verified","publisher":"Stone Bridge Press","publicationYear":2005,"scope":["Japanese rock","J-rock","visual kei","Japanese metal","rock history"]},
-  {"id":"cuban-timba-contemporary-bass-technique","title":"Cuban Timba: A Contemporary Bass Technique","author":"Feliciano Arango & Cherina Mastrantones","language":"English/Spanish","sourceType":"artist-method","verificationStatus":"verified","publisher":"ArangoTones","publicationYear":2009,"scope":["timba bass","tumbao","bloques","dead notes","palm slide","jazz con timba"]},
-
-
-  {"id":"art-of-classical-guitar-playing","title":"The Art of Classical Guitar Playing","author":"Charles Duncan","language":"English","sourceType":"published-method","verificationStatus":"verified","publisher":"Alfred Music","publicationYear":1995,"scope":["classical guitar technique","right-hand technique","articulation","fretboard"]},
-  {"id":"sor-complete-studies","title":"Fernando Sor — Complete Studies, Lessons and Exercises","author":"Fernando Sor; edited by Brian Jeffery","language":"English","sourceType":"published-etude-collection","verificationStatus":"verified","publisher":"Tecla Editions","scope":["classical guitar studies","left-hand technique","right-hand technique","phrase construction"]},
-  {"id":"bach-for-guitar-schott","title":"Bach for Guitar","author":"J. S. Bach; arranged by Martin Hegel","language":"English","sourceType":"published-transcription","verificationStatus":"verified","publisher":"Schott Music","scope":["Baroque repertoire","counterpoint","arpeggiation","voice independence"]},
-
+export const SOURCE_BIBLIOGRAPHY = [
+  {
+    "id": "mongolian-folk-metal",
+    "title": "Tengger Cavalry — Mongolian Folk Rock/Metal Reference",
+    "author": "Tengger Cavalry / Nature Ganganbaigal",
+    "language": "English",
+    "sourceType": "artist-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Mongolian folk metal",
+      "throat singing",
+      "morin khuur",
+      "Central Asian instruments",
+      "folk metal"
+    ]
+  },
+  {
+    "id": "taiwanese-rock-reference",
+    "title": "A History of Taiwanese Rock: Thirty Years from the Underground to the Mainstream",
+    "author": "Taiwan.md editorial reference",
+    "language": "English",
+    "sourceType": "music-history-reference",
+    "verificationStatus": "verified",
+    "scope": [
+      "Taiwanese rock",
+      "Taiwanese rock history",
+      "Taiwanese metal",
+      "independent rock"
+    ]
+  },
+  {
+    "id": "chinese-rock-vernacular",
+    "title": "Modernizing Chinese Vernacular Music — From Red Songs to Rock Music",
+    "author": "Ya-Hui Cheng",
+    "language": "English",
+    "sourceType": "academic-book-chapter",
+    "verificationStatus": "verified",
+    "publisher": "Routledge",
+    "scope": [
+      "Chinese rock",
+      "Northwest Wind",
+      "Cui Jian",
+      "Chinese vernacular music"
+    ]
+  },
+  {
+    "id": "japrocksampler",
+    "title": "Japrocksampler: How the Post-war Japanese Blew Their Minds on Rock 'n' Roll",
+    "author": "Julian Cope",
+    "language": "English",
+    "sourceType": "music-history",
+    "verificationStatus": "verified",
+    "publisher": "Bloomsbury",
+    "publicationYear": 2007,
+    "scope": [
+      "Japanese rock",
+      "Japanese progressive rock",
+      "Japanese heavy rock",
+      "post-war Japanese music"
+    ]
+  },
+  {
+    "id": "jrock-ink",
+    "title": "Jrock, Ink: A Concise Report on 40 of the Biggest Rock Acts in Japan",
+    "author": "Josephine Yun",
+    "language": "English",
+    "sourceType": "music-reference",
+    "verificationStatus": "verified",
+    "publisher": "Stone Bridge Press",
+    "publicationYear": 2005,
+    "scope": [
+      "Japanese rock",
+      "J-rock",
+      "visual kei",
+      "Japanese metal",
+      "rock history"
+    ]
+  },
+  {
+    "id": "cuban-timba-contemporary-bass-technique",
+    "title": "Cuban Timba: A Contemporary Bass Technique",
+    "author": "Feliciano Arango & Cherina Mastrantones",
+    "language": "English/Spanish",
+    "sourceType": "artist-method",
+    "verificationStatus": "verified",
+    "publisher": "ArangoTones",
+    "publicationYear": 2009,
+    "scope": [
+      "timba bass",
+      "tumbao",
+      "bloques",
+      "dead notes",
+      "palm slide",
+      "jazz con timba"
+    ]
+  },
+  {
+    "id": "art-of-classical-guitar-playing",
+    "title": "The Art of Classical Guitar Playing",
+    "author": "Charles Duncan",
+    "language": "English",
+    "sourceType": "published-method",
+    "verificationStatus": "verified",
+    "publisher": "Alfred Music",
+    "publicationYear": 1995,
+    "scope": [
+      "classical guitar technique",
+      "right-hand technique",
+      "articulation",
+      "fretboard"
+    ]
+  },
+  {
+    "id": "sor-complete-studies",
+    "title": "Fernando Sor — Complete Studies, Lessons and Exercises",
+    "author": "Fernando Sor; edited by Brian Jeffery",
+    "language": "English",
+    "sourceType": "published-etude-collection",
+    "verificationStatus": "verified",
+    "publisher": "Tecla Editions",
+    "scope": [
+      "classical guitar studies",
+      "left-hand technique",
+      "right-hand technique",
+      "phrase construction"
+    ]
+  },
+  {
+    "id": "bach-for-guitar-schott",
+    "title": "Bach for Guitar",
+    "author": "J. S. Bach; arranged by Martin Hegel",
+    "language": "English",
+    "sourceType": "published-transcription",
+    "verificationStatus": "verified",
+    "publisher": "Schott Music",
+    "scope": [
+      "Baroque repertoire",
+      "counterpoint",
+      "arpeggiation",
+      "voice independence"
+    ]
+  },
   {
     "id": "101-montunos",
     "title": "101 Montunos",
@@ -103,14 +227,18 @@ export const SOURCE_BIBLIOGRAPHY: SourceBibliographyItem[] = [
   {
     "id": "c-mo-tocar-tango-en-guitarra",
     "title": "Cómo tocar tango en guitarra",
-    "author": "Ramos, Ariel E. & Botto, Mariano",
-    "language": "English",
+    "author": "Mariano Botto",
+    "language": "Spanish",
     "sourceType": "published-method",
     "verificationStatus": "verified",
-    "publisher": "See source edition",
+    "publisher": "Melos / Independently Published edition",
     "scope": [
-      "exercise reference"
-    ]
+      "guitar exercise reference",
+      "tango accompaniment",
+      "milonga",
+      "vals"
+    ],
+    "publicationYear": 2020
   },
   {
     "id": "chord-chemistry",
@@ -284,13 +412,21 @@ export const SOURCE_BIBLIOGRAPHY: SourceBibliographyItem[] = [
     "id": "m-todo-de-guitarra-tango",
     "title": "Método de guitarra tango",
     "author": "Julián Graciano",
-    "language": "English",
+    "language": "Spanish",
     "sourceType": "published-method",
     "verificationStatus": "verified",
-    "publisher": "See source edition",
+    "publisher": "Melos Ediciones Musicales",
     "scope": [
-      "exercise reference"
-    ]
+      "guitar exercise reference",
+      "tango accompaniment",
+      "bordoneo",
+      "rellenos",
+      "harmony",
+      "melody",
+      "milonga",
+      "vals"
+    ],
+    "publicationYear": 2016
   },
   {
     "id": "modern-blues-guitar-soloing",
@@ -373,7 +509,10 @@ export const SOURCE_BIBLIOGRAPHY: SourceBibliographyItem[] = [
     "verificationStatus": "verified-topic",
     "publisher": "See source edition",
     "scope": [
-      "exercise reference"
+      "bass exercise reference",
+      "tango bass",
+      "milonga",
+      "electric bass duets"
     ]
   },
   {
@@ -602,6 +741,131 @@ export const SOURCE_BIBLIOGRAPHY: SourceBibliographyItem[] = [
     "publisher": "See source edition",
     "scope": [
       "exercise reference"
+    ]
+  },
+  {
+    "id": "guitar-in-tango-henriquez",
+    "title": "La guitarra en el tango / The Guitar in Tango",
+    "author": "Sebastián Henríquez",
+    "language": "Spanish / English",
+    "sourceType": "published-method",
+    "verificationStatus": "verified",
+    "publisher": "Tango Sin Fin",
+    "publicationYear": 2018,
+    "scope": [
+      "guitar exercise reference",
+      "time-marking models",
+      "rhythmic melody",
+      "expressive melody",
+      "milonga",
+      "vals",
+      "ensemble playing"
+    ]
+  },
+  {
+    "id": "bass-in-tango-varchausky",
+    "title": "El contrabajo en el tango / The Bass in Tango",
+    "author": "Ignacio Varchausky",
+    "language": "Spanish / English",
+    "sourceType": "published-method",
+    "verificationStatus": "verified",
+    "publisher": "Tango Sin Fin",
+    "publicationYear": 2018,
+    "scope": [
+      "bass exercise reference",
+      "time-marking models",
+      "bass lines",
+      "rhythmic melody",
+      "expressive melody",
+      "milonga",
+      "vals",
+      "percussive effects"
+    ]
+  },
+  {
+    "id": "tango-tracing-tangueros",
+    "title": "Tracing Tangueros: Argentine Tango Instrumental Music",
+    "author": "Kacey Link & Kristin Wendland",
+    "language": "English",
+    "sourceType": "academic-book",
+    "verificationStatus": "verified",
+    "publisher": "Oxford University Press",
+    "publicationYear": 2016,
+    "scope": [
+      "tango terminology",
+      "accompanimental rhythms",
+      "arrastre",
+      "bordoneo",
+      "3-3-2",
+      "melodic embellishment",
+      "phrasing",
+      "arranging"
+    ]
+  },
+  {
+    "id": "tango-bass-articulations-marcipar",
+    "title": "Articulations and Percussive Effects in Tango Double Bass Lines",
+    "author": "Iris Marcipar",
+    "language": "English",
+    "sourceType": "academic-dissertation",
+    "verificationStatus": "verified",
+    "publisher": "University of Georgia",
+    "publicationYear": 2024,
+    "scope": [
+      "double bass articulation",
+      "syncopation",
+      "strappata",
+      "chasquido",
+      "arrastre",
+      "cordal",
+      "tambor",
+      "silbido"
+    ]
+  },
+  {
+    "id": "fain-herramientas-tango",
+    "title": "Cuaderno de estudio: Herramientas fundamentales del tango",
+    "author": "Paulina Fain",
+    "language": "Spanish / English",
+    "sourceType": "published-method",
+    "verificationStatus": "verified",
+    "publisher": "Ediciones Tango Sin Fin",
+    "publicationYear": 2017,
+    "scope": [
+      "tango rhythmic-harmonic base",
+      "marcato en 4",
+      "marcato en 2",
+      "marcato en 2 invertido",
+      "yumba",
+      "síncopa",
+      "pesante",
+      "blancas",
+      "coral",
+      "bordoneo",
+      "3-3-2",
+      "umpa-umpa",
+      "polyrhythm"
+    ]
+  },
+  {
+    "id": "latitud-bass-seminar",
+    "title": "Seminario: El contrabajo en el tango",
+    "author": "Latitud Tango",
+    "language": "Spanish",
+    "sourceType": "web-course",
+    "verificationStatus": "verified",
+    "publisher": "Latitud Tango",
+    "publicationYear": 2026,
+    "scope": [
+      "double bass tango",
+      "marcato",
+      "yumba",
+      "síncopa",
+      "pizzicato articulations",
+      "arrastre",
+      "percussive effects",
+      "milonga",
+      "vals"
     ]
   }
 ];

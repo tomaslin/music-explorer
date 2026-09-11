@@ -1,6 +1,6 @@
 /** Easy-to-browse genre navigation. The four primary anchors intentionally lead the map. */
 export const GENRE_ATLAS_TREE = [
-  { name: 'Tango', children: ['Tango','Milonga','Vals','Tango Nuevo','Yumba','Marcato','Bordone'] },
+  { name: 'Tango', children: ['Tango','Marcato','Síncopa','Arrastre','Yumba','Bordoneo','3+3+2','Rellenos & Cadences','Fraseo & Yeites','Guitar Effects','Bass Lines','Bass Effects','Ensemble Roles','Milonga','Vals','Tango Nuevo'] },
   { name: 'Latin', children: ['Salsa','Son Montuno','Mambo','Cha-Cha-Chá','Timba','Songo','Afro-Cuban 6/8','Merengue','Bachata','Cumbia','Guaracha','Bolero','Latin Jazz','Montuno','Reggaeton'] },
   { name: 'Flamenco', children: ['Soleá','Bulerías','Alegrías','Tangós','Farruca','Seguiriya','Fandangos','Rumba Flamenca','Tientos','Tarantos','Zapateado','Malagueñas'] },
   { name: 'Brazilian', children: ['Samba','Bossa Nova','Partido-Alto','Choro','Baião','Frevo','Afoxé','Maracatu','Ijexá','Coco','Forró','Samba-Funk','Maxixe','Xote','Lambada'] },
