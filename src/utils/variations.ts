@@ -10,6 +10,20 @@ export interface VariationInfo {
 }
 
 const VARIATION_METADATA: Record<string, Omit<VariationInfo, 'type'>> = {
+  microtiming: {
+    label: 'Microtiming Study',
+    shortLabel: 'Microtiming',
+    description: 'Explores timing placement, push, layback, or subdivision feel.',
+    badgeClass: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+    dotClass: 'bg-cyan-400',
+  },
+  cadence: {
+    label: 'Cadence Study',
+    shortLabel: 'Cadence',
+    description: 'Explores a phrase ending, turnaround, or cadence vocabulary.',
+    badgeClass: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
+    dotClass: 'bg-violet-400',
+  },
   base: {
     label: 'Base Pattern',
     shortLabel: 'Base Pattern',

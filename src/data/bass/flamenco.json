@@ -1,0 +1,5532 @@
+[
+  {
+    "id": "gap-alegria-accent-displacement-bass-e5a0dc92c8",
+    "title": "Alegria — Accent & Displacement (Bass)",
+    "description": "Alegria-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "alegrías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "alegrías"
+    ],
+    "styleTags": [
+      "alegrías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "alegrías",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Alegria — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-alegr-as-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Alegrías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-alegria-core-vocabulary-bass-30d6b1eb9a",
+    "title": "Alegria — Core Vocabulary (Bass)",
+    "description": "Alegria-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "alegrías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "alegrías"
+    ],
+    "styleTags": [
+      "alegrías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "alegrías",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Alegria — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-alegr-as-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Alegrías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-alegria-rest-space-bass-1414a1513d",
+    "title": "Alegria — Rest / Space (Bass)",
+    "description": "Alegria-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 4,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "alegrías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "alegrías"
+    ],
+    "styleTags": [
+      "alegrías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "alegrías",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Alegria — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 4,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-alegr-as-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Alegrías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-bulerias-accent-displacement-bass-acd8acb870",
+    "title": "Bulerias — Accent & Displacement (Bass)",
+    "description": "Bulerias-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 6,
+        "accent": "accent"
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "bulerías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "bulerías"
+    ],
+    "styleTags": [
+      "bulerías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "bulerías",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Bulerias — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 6,
+            "accent": "accent"
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-buler-as-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Bulerías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-bulerias-core-vocabulary-bass-df219b51d0",
+    "title": "Bulerias — Core Vocabulary (Bass)",
+    "description": "Bulerias-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "bulerías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "bulerías"
+    ],
+    "styleTags": [
+      "bulerías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "bulerías",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Bulerias — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-buler-as-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Bulerías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-bulerias-rest-space-bass-b4b5bf9e3f",
+    "title": "Bulerias — Rest / Space (Bass)",
+    "description": "Bulerias-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 5,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "bulerías",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "bulerías"
+    ],
+    "styleTags": [
+      "bulerías"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "bulerías",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Bulerias — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 5,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-buler-as-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Bulerías",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-fandango-accent-displacement-bass-14fc216ca1",
+    "title": "Fandango — Accent & Displacement (Bass)",
+    "description": "Fandango-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 6,
+        "accent": "accent"
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "fandangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "fandangos"
+    ],
+    "styleTags": [
+      "fandangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "fandangos",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3.5,
+    "phraseType": "phrase",
+    "focus": "Fandango — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 6,
+            "accent": "accent"
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-fandangos-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Fandangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-fandango-core-vocabulary-bass-42f9a69fae",
+    "title": "Fandango — Core Vocabulary (Bass)",
+    "description": "Fandango-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "fandangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "fandangos"
+    ],
+    "styleTags": [
+      "fandangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "fandangos",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3.5,
+    "phraseType": "phrase",
+    "focus": "Fandango — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-fandangos-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Fandangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-fandango-rest-space-bass-4edceba20d",
+    "title": "Fandango — Rest / Space (Bass)",
+    "description": "Fandango-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 5,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "fandangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "fandangos"
+    ],
+    "styleTags": [
+      "fandangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "fandangos",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3.5,
+    "phraseType": "phrase",
+    "focus": "Fandango — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 5,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-fandangos-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Fandangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-farruca-accent-displacement-bass-88cbac2104",
+    "title": "Farruca — Accent & Displacement (Bass)",
+    "description": "Farruca-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 11,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "7",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "farruca",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "farruca"
+    ],
+    "styleTags": [
+      "farruca"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "farruca",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Farruca — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 11,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-farruca-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Farruca",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-farruca-core-vocabulary-bass-28c67ce400",
+    "title": "Farruca — Core Vocabulary (Bass)",
+    "description": "Farruca-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 11,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "7",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "farruca",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "farruca"
+    ],
+    "styleTags": [
+      "farruca"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "farruca",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Farruca — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 11,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "7",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-farruca-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Farruca",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-farruca-rest-space-bass-60262f2bcf",
+    "title": "Farruca — Rest / Space (Bass)",
+    "description": "Farruca-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 11,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "7",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 4,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "farruca",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "farruca"
+    ],
+    "styleTags": [
+      "farruca"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "farruca",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 2.5,
+    "phraseType": "phrase",
+    "focus": "Farruca — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 11,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "7",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 4,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-farruca-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Farruca",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 2.5,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-seguiriya-accent-displacement-bass-9a9ddbd523",
+    "title": "Seguiriya — Accent & Displacement (Bass)",
+    "description": "Seguiriya-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 6,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b5",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "seguiriya",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "seguiriya"
+    ],
+    "styleTags": [
+      "seguiriya"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "seguiriya",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Seguiriya — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 6,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b5",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-seguiriya-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Seguiriya",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-seguiriya-core-vocabulary-bass-5dd658fc66",
+    "title": "Seguiriya — Core Vocabulary (Bass)",
+    "description": "Seguiriya-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 6,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b5",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "seguiriya",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "seguiriya"
+    ],
+    "styleTags": [
+      "seguiriya"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "seguiriya",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Seguiriya — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 6,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b5",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-seguiriya-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Seguiriya",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-seguiriya-rest-space-bass-2b65286849",
+    "title": "Seguiriya — Rest / Space (Bass)",
+    "description": "Seguiriya-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 6,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 4,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "seguiriya",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "seguiriya"
+    ],
+    "styleTags": [
+      "seguiriya"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "seguiriya",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Seguiriya — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 6,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 4,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-seguiriya-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Seguiriya",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-solea-accent-displacement-bass-37fdfb39cb",
+    "title": "Solea — Accent & Displacement (Bass)",
+    "description": "Solea-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 6,
+        "accent": "accent"
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "soleá",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "soleá"
+    ],
+    "styleTags": [
+      "soleá"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "soleá",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Solea — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 6,
+            "accent": "accent"
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-sole-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Soleá",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-solea-core-vocabulary-bass-02a8cb1101",
+    "title": "Solea — Core Vocabulary (Bass)",
+    "description": "Solea-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "soleá",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "soleá"
+    ],
+    "styleTags": [
+      "soleá"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "soleá",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Solea — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-sole-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Soleá",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-solea-rest-space-bass-e84eeec956",
+    "title": "Solea — Rest / Space (Bass)",
+    "description": "Solea-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 5,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 6
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "soleá",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "soleá"
+    ],
+    "styleTags": [
+      "soleá"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "soleá",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Solea — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.25,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 5,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-sole-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Soleá",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tangos-accent-displacement-bass-a45b986677",
+    "title": "Tangos — Accent & Displacement (Bass)",
+    "description": "Tangos-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 6,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tangos"
+    ],
+    "styleTags": [
+      "tangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tangos",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Tangos — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 6,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tangos-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tangos-core-vocabulary-bass-74cf6618a7",
+    "title": "Tangos — Core Vocabulary (Bass)",
+    "description": "Tangos-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 6
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tangos"
+    ],
+    "styleTags": [
+      "tangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tangos",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Tangos — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tangos-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tangos-rest-space-bass-ec3f24860c",
+    "title": "Tangos — Rest / Space (Bass)",
+    "description": "Tangos-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 6,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tangos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tangos"
+    ],
+    "styleTags": [
+      "tangos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tangos",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Tangos — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 6,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tangos-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tangos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tientos-accent-displacement-bass-1d08336ffc",
+    "title": "Tientos — Accent & Displacement (Bass)",
+    "description": "Tientos-specific bass vocabulary cell with a controlled accent & displacement treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8d",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tientos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tientos"
+    ],
+    "styleTags": [
+      "tientos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tientos",
+      "accent-&-displacement"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Tientos — Accent & Displacement (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8d",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8d",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.75,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tientos-bass",
+    "variationType": "rhythmic-variation",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tientos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tientos-core-vocabulary-bass-3055c52ddd",
+    "title": "Tientos — Core Vocabulary (Bass)",
+    "description": "Tientos-specific bass vocabulary cell with a controlled core vocabulary treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8d",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tientos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tientos"
+    ],
+    "styleTags": [
+      "tientos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tientos",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Tientos — Core Vocabulary (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8d",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8d",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.75,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tientos-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tientos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "gap-tientos-rest-space-bass-73632dc338",
+    "title": "Tientos — Rest / Space (Bass)",
+    "description": "Tientos-specific bass vocabulary cell with a controlled rest / space treatment. This is original atlas material, not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8d",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "16",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": true,
+        "eventIndex": 4,
+        "noteRole": "space"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "flamenco",
+      "tientos",
+      "gap-expansion",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "tientos"
+    ],
+    "styleTags": [
+      "tientos"
+    ],
+    "techniqueTags": [
+      "fingerstyle"
+    ],
+    "conceptTags": [
+      "tientos",
+      "rest-/-space"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Tientos — Rest / Space (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8d",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8d",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.75,
+        "duration": "16",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "16",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": true,
+            "eventIndex": 4,
+            "noteRole": "space"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-gap-tientos-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Flamenco",
+    "genreParent": "Flamenco",
+    "genreSubcategory": "Tientos",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  }
+]

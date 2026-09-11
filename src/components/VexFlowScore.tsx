@@ -77,30 +77,68 @@ interface SystemPlan {
   measureIndices: number[];
 }
 
-function planSystems(measures: RenderedEvent[][], availableWidth: number): SystemPlan[] {
-  const count = measures.length;
-  if (count <= 4) {
-    return [{ measureIndices: Array.from({length: count}, (_, i) => i) }];
-  }
-  
-  const systems: SystemPlan[] = [];
-  let cur: number[] = [];
-  let curWidth = 0;
-  for (let i = 0; i < count; i++) {
-    const isFirst = cur.length === 0;
-    const needed = (isFirst ? 95 : 45) + Math.max(measures[i].length * 44, 200);
-    if (cur.length > 0 && (curWidth + needed > availableWidth || cur.length >= 4)) {
-      systems.push({ measureIndices: cur });
-      cur = [i];
-      curWidth = 95 + Math.max(measures[i].length * 44, 200);
-    } else {
-      cur.push(i);
-      curWidth += needed;
+function durationTokenForQuarterUnits(units: number): string {
+  const options: Array<[number, string]> = [
+    [4, 'w'], [3, 'hd'], [2, 'h'], [1.5, '8d'], [1, 'q'], [0.75, '16d'],
+    [0.5, '8'], [0.375, '32d'], [0.25, '16'], [0.125, '32'], [0.0625, '64'],
+  ];
+  const match = options.find(([value]) => Math.abs(value - units) < 0.0001);
+  return match?.[1] || '32';
+}
+
+/**
+ * VexFlow voices must not contain a tickable that crosses a barline.
+ * Source data occasionally contains sustained events that start near the end of a
+ * measure. Split those events at barlines so every generated voice is render-safe.
+ */
+function splitEventsAtMeasureBoundaries(source: RenderedEvent[], capacity: number): RenderedEvent[] {
+  if (!capacity || capacity <= 0) return source;
+  const output: RenderedEvent[] = [];
+  for (const event of source) {
+    let remaining = durationToQuarterUnits(event.duration);
+    let cursor = event.startBeat;
+    let segmentIndex = 0;
+    while (remaining > 0.0001) {
+      const offsetInMeasure = ((cursor % capacity) + capacity) % capacity;
+      const room = Math.max(0.0001, capacity - offsetInMeasure);
+      const segmentUnits = Math.min(remaining, room);
+      output.push({
+        ...event,
+        startBeat: cursor,
+        duration: durationTokenForQuarterUnits(segmentUnits),
+        notes: event.notes.map(note => ({ ...note, eventIndex: event.notes[0]?.eventIndex ?? note.eventIndex })),
+      });
+      cursor += segmentUnits;
+      remaining -= segmentUnits;
+      segmentIndex += 1;
+      if (segmentIndex > 64) break;
     }
   }
-  if (cur.length > 0) {
-    systems.push({ measureIndices: cur });
+  return output;
+}
+
+function planSystems(measures: RenderedEvent[][], availableWidth: number): SystemPlan[] {
+  if (!measures.length) return [];
+  const width = Math.max(260, availableWidth);
+  const systems: SystemPlan[] = [];
+  let current: number[] = [];
+  let currentWidth = 0;
+
+  for (let i = 0; i < measures.length; i++) {
+    const measureWidth = 95 + Math.max(measures[i].length * 44, 200);
+    const projected = current.length === 0 ? measureWidth : currentWidth + measureWidth;
+
+    if (current.length > 0 && projected > width) {
+      systems.push({ measureIndices: current });
+      current = [i];
+      currentWidth = measureWidth;
+    } else {
+      current.push(i);
+      currentWidth = projected;
+    }
   }
+
+  if (current.length) systems.push({ measureIndices: current });
   return systems;
 }
 
@@ -130,24 +168,32 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    const viewport = el.parentElement;
+    if (!viewport) return;
     let raf = 0;
-    let last = 0;
-    const updateWidth = () => {
+    let lastWidth = 0;
+    let lastHeight = 0;
+
+    const updateAvailableSpace = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const w = Math.floor(rect.width || el.clientWidth);
-        const h = Math.floor(rect.height || el.clientHeight);
-        if (w > 100 && Math.abs(w - last) >= 2) {
-          last = w;
+        const rect = viewport.getBoundingClientRect();
+        const w = Math.floor(rect.width || viewport.clientWidth);
+        const h = Math.floor(rect.height || viewport.clientHeight);
+        if (w > 100 && Math.abs(w - lastWidth) >= 2) {
+          lastWidth = w;
           setContainerWidth(w);
         }
-        if (h > 100) setContainerHeight(h);
+        if (h > 100 && Math.abs(h - lastHeight) >= 2) {
+          lastHeight = h;
+          setContainerHeight(h);
+        }
       });
     };
-    updateWidth();
-    const ro = new ResizeObserver(updateWidth);
-    ro.observe(el);
+
+    updateAvailableSpace();
+    const ro = new ResizeObserver(updateAvailableSpace);
+    ro.observe(viewport);
     return () => { cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);
 
@@ -192,8 +238,31 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
         cursor = Math.max(cursor, e.startBeat + durationToQuarterUnits(e.duration));
       }
 
+      // Resolve the rare overlapping source events before VexFlow voice construction.
+      // VexFlow voices are sequential; preserve every onset by clipping a preceding
+      // sustained event to the next onset rather than silently shifting the later event.
+      const timelineEvents = [...renderEvents].sort((a, b) => a.startBeat - b.startBeat);
+      const nonOverlappingEvents: RenderedEvent[] = [];
+      for (const event of timelineEvents) {
+        const previous = nonOverlappingEvents[nonOverlappingEvents.length - 1];
+        if (previous) {
+          const previousEnd = previous.startBeat + durationToQuarterUnits(previous.duration);
+          if (event.startBeat > previous.startBeat && event.startBeat < previousEnd - 0.0001) {
+            const clipped = event.startBeat - previous.startBeat;
+            if (clipped > 0.0001) {
+              nonOverlappingEvents[nonOverlappingEvents.length - 1] = {
+                ...previous,
+                duration: durationTokenForQuarterUnits(clipped),
+              };
+            }
+          }
+        }
+        nonOverlappingEvents.push(event);
+      }
+
+      const safeRenderEvents = splitEventsAtMeasureBoundaries(nonOverlappingEvents, cap);
       const measures: RenderedEvent[][] = [];
-      for (const e of renderEvents) {
+      for (const e of safeRenderEvents) {
         const idx = Math.floor(e.startBeat / cap);
         while (measures.length <= idx) measures.push([]);
         measures[idx].push(e);
@@ -207,7 +276,7 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
       
       // Render to the actual available width. Long exercises are split into systems rather than
       // forcing a giant SVG that creates an unnecessary horizontal scroll region.
-      const targetWidth = Math.max(320, containerWidth - 16);
+      const targetWidth = Math.max(260, containerWidth - 8);
 
       const systemsPlan = planSystems(measures, targetWidth);
 
@@ -305,8 +374,8 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
           for (const e of measureEvents) {
             const playable = e.notes.filter((n) => !n.isRest);
             const isRest = !playable.length || Boolean(e.notes[0]?.isRest);
-            const isDotted = e.duration.includes('.');
-            const cleanDuration = e.duration.replace('.', '') + (isDotted ? 'd' : '');
+            const isDotted = e.duration.endsWith('.') || e.duration.endsWith('d');
+            const cleanDuration = e.duration.replace(/[.d]$/, '') + (isDotted ? 'd' : '');
             const durationStr = isRest ? `${cleanDuration}r` : cleanDuration;
             const restKey = clef === 'bass' ? 'd/3' : 'b/4';
             const getWrittenOctave = (oct: number) => {
@@ -533,7 +602,7 @@ export const VexFlowScore: React.FC<VexFlowScoreProps> = ({
           <div
             ref={containerRef}
             id="vexflow-score-svg"
-            className="min-w-full flex justify-center px-4"
+            className="w-full flex justify-center px-1"
           />
         )}
       </div>

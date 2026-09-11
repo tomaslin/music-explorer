@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c-depth-1-2d0956fa1c",
+    "title": "Chord Melody — Accent Reframe",
+    "description": "Original accent reframe for Chord Melody; preserve the core vocabulary while focusing on the stated performance treatment.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1,
+        "accent": "normal"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2,
+        "accent": "normal"
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4,
+        "accent": "normal"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5,
+        "accent": "normal"
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6,
+        "accent": "accent"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7,
+        "accent": "normal"
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass",
+      "Chord Melody",
+      "Accent Reframe"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Accent Reframe",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1,
+            "accent": "normal"
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2,
+            "accent": "normal"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4,
+            "accent": "normal"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5,
+            "accent": "normal"
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6,
+            "accent": "accent"
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7,
+            "accent": "normal"
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "accent",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric",
+    "parentExerciseId": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c"
+  },
+  {
+    "id": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c-depth-3-b58a7b804f",
+    "title": "Chord Melody — Articulation Reframe",
+    "description": "Original articulation reframe for Chord Melody; preserve the core vocabulary while focusing on the stated performance treatment.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0,
+        "technique": "staccato"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2,
+        "technique": "staccato"
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4,
+        "technique": "staccato"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6,
+        "technique": "staccato"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass",
+      "Chord Melody",
+      "Articulation Reframe"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Articulation Reframe",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0,
+            "technique": "staccato"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2,
+            "technique": "staccato"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4,
+            "technique": "staccato"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6,
+            "technique": "staccato"
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "technique",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric",
+    "parentExerciseId": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c"
+  },
+  {
+    "id": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c-depth-4-99130ed390",
+    "title": "Chord Melody — Cadential Reframe",
+    "description": "Original cadential reframe for Chord Melody; preserve the core vocabulary while focusing on the stated performance treatment.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6
+      },
+      {
+        "semitoneFromRoot": 1,
+        "octaveOffset": 0,
+        "duration": "8",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass",
+      "Chord Melody",
+      "Cadential Reframe"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Cadential Reframe",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 1,
+            "octaveOffset": 0,
+            "duration": "8",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "cadence",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric",
+    "parentExerciseId": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c"
+  },
+  {
+    "id": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c",
+    "title": "Chord Melody — Core Vocabulary 1 (Bass)",
+    "description": "Original bass exercise encoding the named Chord Melody rhythmic or stylistic concept; not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Chord Melody — Core Vocabulary 1 (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "coverage-chord-melody-core-vocabulary-4-bass-49636c6beb",
+    "title": "Chord Melody — Core Vocabulary 4 (Bass)",
+    "description": "Original bass exercise encoding the named Chord Melody rhythmic or stylistic concept; not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 10,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b7",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 8,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b6",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 5,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "4",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 3,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "b3",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 5,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "4",
+        "isRest": false,
+        "eventIndex": 5
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 3,
+    "phraseType": "phrase",
+    "focus": "Chord Melody — Core Vocabulary 4 (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 10,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b7",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 8,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b6",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 5,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "4",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 3,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "b3",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 5,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "4",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "contrast",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 3,
+      "phraseType": "phrase"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  },
+  {
+    "id": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c-depth-2-f92f5005ad",
+    "title": "Chord Melody — Feel Reframe",
+    "description": "Original feel reframe for Chord Melody; preserve the core vocabulary while focusing on the stated performance treatment.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0,
+        "microtiming": "laid-back"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1,
+        "microtiming": null
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2,
+        "microtiming": "laid-back"
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3,
+        "microtiming": null
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4,
+        "microtiming": "laid-back"
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5,
+        "microtiming": null
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6,
+        "microtiming": "laid-back"
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7,
+        "microtiming": null
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "chord-melody",
+      "original-synthesis",
+      "bass",
+      "Chord Melody",
+      "Feel Reframe"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "chord-melody"
+    ],
+    "styleTags": [
+      "chord-melody"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "chord-melody",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Feel Reframe",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0,
+            "microtiming": "laid-back"
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1,
+            "microtiming": null
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2,
+            "microtiming": "laid-back"
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3,
+            "microtiming": null
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4,
+            "microtiming": "laid-back"
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5,
+            "microtiming": null
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6,
+            "microtiming": "laid-back"
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7,
+            "microtiming": null
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-chord-melody-bass",
+    "variationType": "microtiming",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Chord Melody",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric",
+    "parentExerciseId": "coverage-chord-melody-core-vocabulary-1-bass-70d523262c"
+  },
+  {
+    "id": "coverage-percussive-fingerstyle-core-vocabulary-1-bass-73676a57e3",
+    "title": "Percussive Fingerstyle — Core Vocabulary 1 (Bass)",
+    "description": "Original bass exercise encoding the named Percussive Fingerstyle rhythmic or stylistic concept; not a transcription.",
+    "instrument": "bass",
+    "clef": "bass",
+    "timeSignature": "4/4",
+    "defaultBpm": 92,
+    "subdivision": "eighth",
+    "notes": [
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 0
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 1
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 2
+      },
+      {
+        "semitoneFromRoot": 9,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "6",
+        "isRest": false,
+        "eventIndex": 3
+      },
+      {
+        "semitoneFromRoot": 7,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "5",
+        "isRest": false,
+        "eventIndex": 4
+      },
+      {
+        "semitoneFromRoot": 4,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "3",
+        "isRest": false,
+        "eventIndex": 5
+      },
+      {
+        "semitoneFromRoot": 2,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "2",
+        "isRest": false,
+        "eventIndex": 6
+      },
+      {
+        "semitoneFromRoot": 0,
+        "octaveOffset": 0,
+        "duration": "8",
+        "intervalDegree": "R",
+        "isRest": false,
+        "eventIndex": 7
+      }
+    ],
+    "tags": [
+      "coverage-expansion",
+      "acoustic & fingerstyle",
+      "percussive-fingerstyle",
+      "original-synthesis",
+      "bass"
+    ],
+    "targetProfiles": [
+      "bass-4-standard"
+    ],
+    "rhythmTags": [
+      "4/4",
+      "percussive-fingerstyle"
+    ],
+    "styleTags": [
+      "percussive-fingerstyle"
+    ],
+    "techniqueTags": [],
+    "conceptTags": [
+      "percussive-fingerstyle",
+      "core-vocabulary"
+    ],
+    "harmonyTags": [],
+    "instrumentTags": [
+      "bass",
+      "bass-4-standard"
+    ],
+    "cycleLengthBeats": 4,
+    "phraseType": "bar-loop",
+    "focus": "Percussive Fingerstyle — Core Vocabulary 1 (Bass)",
+    "events": [
+      {
+        "startBeat": 0,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 0
+          }
+        ]
+      },
+      {
+        "startBeat": 0.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 1
+          }
+        ]
+      },
+      {
+        "startBeat": 1,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 2
+          }
+        ]
+      },
+      {
+        "startBeat": 1.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 9,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "6",
+            "isRest": false,
+            "eventIndex": 3
+          }
+        ]
+      },
+      {
+        "startBeat": 2,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 7,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "5",
+            "isRest": false,
+            "eventIndex": 4
+          }
+        ]
+      },
+      {
+        "startBeat": 2.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 4,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "3",
+            "isRest": false,
+            "eventIndex": 5
+          }
+        ]
+      },
+      {
+        "startBeat": 3,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 2,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "2",
+            "isRest": false,
+            "eventIndex": 6
+          }
+        ]
+      },
+      {
+        "startBeat": 3.5,
+        "duration": "8",
+        "notes": [
+          {
+            "semitoneFromRoot": 0,
+            "octaveOffset": 0,
+            "duration": "8",
+            "intervalDegree": "R",
+            "isRest": false,
+            "eventIndex": 7
+          }
+        ]
+      }
+    ],
+    "familyId": "family-coverage-percussive-fingerstyle-bass",
+    "variationType": "application",
+    "musicalRole": "style-vocabulary",
+    "atlas": "Acoustic & Fingerstyle",
+    "genreParent": "Acoustic & Fingerstyle",
+    "genreSubcategory": "Percussive Fingerstyle",
+    "librarySections": [
+      "instrument-exercises"
+    ],
+    "instrumentExerciseCategory": "Style Applications",
+    "instrumentExerciseSubcategory": "Genre Vocabulary",
+    "sourceReferenceType": "original",
+    "rhythmicStructure": {
+      "meter": "4/4",
+      "grouping": [
+        4
+      ],
+      "subdivision": "eighth",
+      "feel": "straight",
+      "cycleLengthBeats": 4,
+      "phraseType": "bar-loop"
+    },
+    "playableKeys": [
+      "C",
+      "C#",
+      "D",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "Ab",
+      "A",
+      "Bb",
+      "B"
+    ],
+    "bassType": "electric"
+  }
+]

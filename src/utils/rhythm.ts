@@ -1,7 +1,7 @@
 // Convert duration tokens to quarter-note units.
 export function durationToQuarterUnits(duration: string | undefined): number {
   const token = (duration || '8').replace(/r$/, '');
-  const dotted = token.endsWith('.');
+  const dotted = token.endsWith('.') || token.endsWith('d');
   const base = dotted ? token.slice(0, -1) : token;
   const values: Record<string, number> = {
     '1': 4,

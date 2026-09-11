@@ -107,7 +107,9 @@ export type VariationType =
   | 'orientation-variant'
   | 'complement'
   | 'permutation'
-  | 'etude';
+  | 'etude'
+  | 'microtiming'
+  | 'cadence';
 
 export interface ExerciseSource {
   title: string;

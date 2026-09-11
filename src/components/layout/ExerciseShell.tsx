@@ -27,7 +27,7 @@ interface ExerciseShellProps {
 export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
   const { allExercises, selectedExercise, onSelectExercise, instrument, instrument: currentInstrument } = props;
   const instrumentExercises = useMemo(() => allExercises.filter(e => e.instrument === currentInstrument), [allExercises, currentInstrument]);
-  const atlasOrder = useMemo(() => GENRE_ATLAS_TREE.map(x => x.name), []);
+  const atlasOrder = useMemo(() => GENRE_ATLAS_TREE.map(x => x.name).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })), []);
   const atlases = useMemo(() => atlasOrder.filter(a => instrumentExercises.some(e => e.atlas === a)), [atlasOrder, instrumentExercises]);
   const [selectedAtlas, setSelectedAtlas] = useState(selectedExercise.atlas);
   const [selectedTopic, setSelectedTopic] = useState(selectedExercise.genreSubcategory || '');
@@ -42,15 +42,23 @@ export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
     return declared.filter(t => present.has(t));
   }, [instrumentExercises, selectedAtlas]);
 
-  const exercises = useMemo(() => instrumentExercises.filter(e => {
-    if (e.atlas !== selectedAtlas) return false;
-    return selectedAtlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === selectedTopic : e.genreSubcategory === selectedTopic;
-  }), [instrumentExercises, selectedAtlas, selectedTopic]);
+  const exercises = useMemo(() => instrumentExercises
+    .filter(e => {
+      if (e.atlas !== selectedAtlas) return false;
+      return selectedAtlas === 'Fretboard & Harmony'
+        ? e.instrumentExerciseSubcategory === selectedTopic
+        : e.genreSubcategory === selectedTopic;
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }) || a.id.localeCompare(b.id)),
+    [instrumentExercises, selectedAtlas, selectedTopic]);
 
   useEffect(() => {
+    const nextTopic = selectedExercise.atlas === 'Fretboard & Harmony'
+      ? (selectedExercise.instrumentExerciseSubcategory || '')
+      : (selectedExercise.genreSubcategory || '');
     if (selectedExercise.atlas !== selectedAtlas) setSelectedAtlas(selectedExercise.atlas);
-    if ((selectedExercise.genreSubcategory || '') !== selectedTopic) setSelectedTopic(selectedExercise.genreSubcategory || '');
-  }, [selectedExercise.id, selectedExercise.atlas, selectedExercise.genreSubcategory]);
+    if (nextTopic !== selectedTopic) setSelectedTopic(nextTopic);
+  }, [selectedExercise.id, selectedExercise.atlas, selectedExercise.genreSubcategory, selectedExercise.instrumentExerciseSubcategory]);
 
   useEffect(() => {
     if (!topics.includes(selectedTopic)) setSelectedTopic(topics[0] || '');
@@ -67,11 +75,15 @@ export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
       available = Array.from(new Set(instrumentExercises.filter(e => e.atlas === atlas).map(e => e.instrumentExerciseSubcategory).filter(Boolean) as string[])).sort();
     } else {
       const nextTopics = GENRE_ATLAS_TREE.find(a => a.name === atlas)?.children || [];
-      available = nextTopics.filter(t => instrumentExercises.some(e => e.atlas === atlas && e.genreSubcategory === t));
+      available = nextTopics
+        .filter(t => instrumentExercises.some(e => e.atlas === atlas && e.genreSubcategory === t))
+        .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base', numeric: true }));
     }
     const topic = available[0] || '';
     setSelectedTopic(topic);
-    const first = instrumentExercises.find(e => e.atlas === atlas && (atlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === topic : e.genreSubcategory === topic));
+    const first = instrumentExercises
+      .filter(e => e.atlas === atlas && (atlas === 'Fretboard & Harmony' ? e.instrumentExerciseSubcategory === topic : e.genreSubcategory === topic))
+      .sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }) || a.id.localeCompare(b.id))[0];
     if (first) onSelectExercise(first);
   };
   const handleTopic = (topic:string) => {
@@ -89,13 +101,13 @@ export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
       <div className="mx-auto max-w-[1800px] px-4 sm:px-6 py-3">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
           <label className="flex flex-col gap-1">
-            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Atlas</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Genre</span>
             <select value={selectedAtlas} onChange={e => handleAtlas(e.target.value)} className="w-full appearance-none bg-stone-900 border border-stone-700 rounded-xl px-3 py-2.5 text-sm font-semibold text-amber-300 focus:outline-none focus:border-amber-500">
               {atlases.map(a => <option key={a} value={a}>{a}</option>)}
             </select>
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Topic</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-stone-500">Subcategory</span>
             <select value={selectedTopic} onChange={e => handleTopic(e.target.value)} className="w-full appearance-none bg-stone-900 border border-stone-700 rounded-xl px-3 py-2.5 text-sm font-semibold text-stone-100 focus:outline-none focus:border-amber-500">
               {topics.map(t => <option key={t} value={t}>{t}</option>)}
             </select>

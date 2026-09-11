@@ -31,7 +31,9 @@ export function App() {
   const [feelOverride, setFeelOverride] = useState<Microtiming | 'exercise'>('exercise');
 
   const allExercises = useMemo(() => {
-    return [...ALL_BASS_EXERCISES, ...ALL_GUITAR_EXERCISES];
+    return [...ALL_BASS_EXERCISES, ...ALL_GUITAR_EXERCISES].sort(
+      (a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }) || a.id.localeCompare(b.id)
+    );
   }, []);
 
   const [selectedExercise, setSelectedExercise] = useState<ExerciseItem>(ALL_BASS_EXERCISES[0]);
