@@ -44,6 +44,10 @@ export type SourceVerificationStatus =
 
 export type VariationType =
   | 'base'
+  | 'cadence'
+  | 'microtiming'
+  | 'permutation'
+  | 'etude'
   | 'foundational'
   | 'variation'
   | 'rhythmic'

@@ -17,6 +17,20 @@ const VARIATION_METADATA: Record<string, Omit<VariationInfo, 'type'>> = {
     badgeClass: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
     dotClass: 'bg-cyan-400',
   },
+  permutation: {
+    label: 'Permutation',
+    shortLabel: 'Permutation',
+    description: 'Reorders or permutes the source pattern while preserving its core material.',
+    badgeClass: 'bg-pink-500/15 text-pink-300 border-pink-500/30',
+    dotClass: 'bg-pink-400',
+  },
+  etude: {
+    label: 'Etude',
+    shortLabel: 'Etude',
+    description: 'Extended technical or musical study built from the exercise vocabulary.',
+    badgeClass: 'bg-orange-500/15 text-orange-300 border-orange-500/30',
+    dotClass: 'bg-orange-400',
+  },
   cadence: {
     label: 'Cadence Study',
     shortLabel: 'Cadence',

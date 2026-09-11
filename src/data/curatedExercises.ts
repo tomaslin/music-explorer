@@ -66,3 +66,22 @@ export const CURATED_EXERCISES: ExerciseItem[] = [
   ...(DATA_30 as ExerciseItem[]),
   ...(DATA_31 as ExerciseItem[]),
 ].sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }) || a.id.localeCompare(b.id));
+
+
+const SUPPORTED_VARIATION_TYPES = new Set([
+  'base','foundational','variation','rhythmic','rhythmic-variation','rhythmic-variant','phrase','phrase-variant',
+  'accent','displacement','syncopation','anticipation','subdivision','meter','clave','clave-variant','harmonic',
+  'harmonic-variation','harmonic-variant','melodic','melodic-variation','melodic-variant','interval','register',
+  'register-variation','register-variant','position','positional-variation','position-variant','voicing','inversion',
+  'arpeggio','articulation','articulation-variation','technique','technique-variant','instrument','instrument-variation',
+  'instrument-variant','role','role-variant','orchestration','call-response','application','advanced-application',
+  'style-application','stylistic-variation','extension','combination','combination-of','contrast','contrast-to',
+  'derived','derivation','derived-from','variation-of','application-of','alternative','exact-duplicate',
+  'concept-duplicate','key-variant','orientation-variant','complement','permutation','etude','microtiming','cadence'
+]);
+
+for (const exercise of CURATED_EXERCISES) {
+  if (exercise.variationType && !SUPPORTED_VARIATION_TYPES.has(exercise.variationType)) {
+    throw new Error(`${exercise.id}: unsupported variationType ${exercise.variationType}`);
+  }
+}

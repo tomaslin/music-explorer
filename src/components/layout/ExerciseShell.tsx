@@ -30,7 +30,7 @@ export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
   const atlasOrder = useMemo(() => GENRE_ATLAS_TREE.map(x => x.name).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })), []);
   const atlases = useMemo(() => atlasOrder.filter(a => instrumentExercises.some(e => e.atlas === a)), [atlasOrder, instrumentExercises]);
   const [selectedAtlas, setSelectedAtlas] = useState(selectedExercise.atlas);
-  const [selectedTopic, setSelectedTopic] = useState(selectedExercise.genreSubcategory || '');
+  const [selectedTopic, setSelectedTopic] = useState(selectedExercise.atlas === 'Fretboard & Harmony' ? (selectedExercise.instrumentExerciseSubcategory || '') : (selectedExercise.genreSubcategory || ''));
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const topics = useMemo(() => {
@@ -93,7 +93,7 @@ export const ExerciseShell:React.FC<ExerciseShellProps> = props => {
   };
 
   const title = cleanExerciseHeading(selectedExercise.title);
-  const topic = cleanExerciseHeading(selectedExercise.genreSubcategory || selectedExercise.atlas);
+  const topic = cleanExerciseHeading(selectedExercise.atlas === 'Fretboard & Harmony' ? (selectedExercise.instrumentExerciseSubcategory || selectedExercise.atlas) : (selectedExercise.genreSubcategory || selectedExercise.atlas));
   const instructions = selectedExercise.description || selectedExercise.focus || 'Play the phrase steadily, then repeat while preserving the stated rhythmic and stylistic character.';
 
   return <div id="exercise-shell" className="w-screen h-screen flex flex-col bg-stone-950 text-stone-100 font-sans overflow-hidden select-none">
